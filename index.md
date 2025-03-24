@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vibecodemama</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Gradient background effect */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #ff71ce, #01cdfe, #b967ff);
+            filter: blur(20px);
+            opacity: 0.3;
+            z-index: -1;
+            animation: gradient-shift 10s ease infinite;
+            border-radius: 15px;
+        }
+
+        /* Profile image */
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            object-fit: cover;
+            border: 4px solid #01cdfe;
+            box-shadow: 0 0 15px #01cdfe, 0 0 30px #01cdfe;
+            margin-bottom: 2rem;
+            background-color: #333; /* Placeholder background */
+            position: relative;
+        }
+
+        /* Placeholder profile image with stylized code symbol */
+        .profile-img::before {
+            content: "{ }";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff71ce;
+            text-shadow: 0 0 10px #ff71ce;
+        }
+
+        /* Intro text */
+        .intro {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Social icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none; /* Remove underline */
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-link.twitter {
+            color: #01cdfe;
+            text-shadow: 0 0 10px #01cdfe;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        .social-link.github {
+            color: #b967ff;
+            text-shadow: 0 0 10px #b967ff;
+        }
+
+        /* Custom X icon */
+        .x-icon {
+            font-style: normal;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Grid background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(rgba(255, 113, 206, 0.1) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(1, 205, 254, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+            perspective: 500px;
+            transform: rotateX(60deg);
+            opacity: 0.2;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            .intro {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="container">
+        <!-- Replace with actual image path or use as placeholder -->
+        <img class="profile-img" src="/profile.jpg"></img>
+        
+        <div class="intro">
+            Writing good vibes and useful little tech projects for parent-coders everywhere.
+        </div>
+        
+        <div class="social-icons">
+            <a href="https://x.com/vibecodemama" class="social-link twitter" aria-label="X (Twitter) Profile">
+                <span class="x-icon">𝕏</span>
+            </a>
+            <a href="https://github.com/vibecodemama" class="social-link github" aria-label="GitHub Profile">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
