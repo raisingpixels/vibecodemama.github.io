@@ -18,6 +18,22 @@
             align-items: center;
             min-height: 100vh;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Full page animated gradient background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #ff71ce, #01cdfe, #b967ff, #ff71ce);
+            background-size: 300% 300%;
+            opacity: 0.35;
+            z-index: -2;
+            animation: gradient-shift 15s ease infinite;
         }
 
         .container {
@@ -26,23 +42,23 @@
             padding: 2rem;
             position: relative;
             z-index: 1;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
         }
 
-        /* Gradient background effect - IMPROVED ANIMATION */
+        /* Container glow effect */
         .container::before {
             content: '';
             position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: linear-gradient(45deg, #ff71ce, #01cdfe, #b967ff, #ff71ce);
-            background-size: 300% 300%;
-            filter: blur(20px);
-            opacity: 0.3;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff71ce, #01cdfe, #b967ff);
             z-index: -1;
-            animation: gradient-shift 8s ease infinite;
-            border-radius: 15px;
+            border-radius: 16px;
+            opacity: 0.5;
         }
 
         /* Profile image with pulsing glow */
@@ -54,22 +70,10 @@
             border: 4px solid #01cdfe;
             box-shadow: 0 0 15px #01cdfe, 0 0 30px #01cdfe;
             margin-bottom: 2rem;
-            background-color: #333; /* Placeholder background */
-            position: relative;
             animation: pulse-glow 3s ease-in-out infinite alternate;
-        }
-
-        /* Placeholder profile image with stylized code symbol */
-        .profile-img::before {
-            content: "{ }";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 3rem;
-            font-weight: bold;
-            color: #ff71ce;
-            text-shadow: 0 0 10px #ff71ce;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Intro text */
@@ -177,9 +181,15 @@
     </style>
 </head>
 <body>
+    <!-- Animated gradient background that covers the whole page -->
+    <div class="gradient-bg"></div>
+    
+    <!-- Grid overlay -->
     <div class="grid-bg"></div>
+    
     <div class="container">
-        <img class="profile-img" src="/profile.jpg"></img>
+        <!-- Using the actual profile image -->
+        <img class="profile-img" src="/profile.jpg">
         
         <div class="intro">
             Writing good vibes and useful little tech projects for parent-coders everywhere.
