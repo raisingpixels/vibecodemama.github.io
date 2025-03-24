@@ -6,6 +6,12 @@
     <title>vibecodemama</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* 
+         * Code flows like water
+         * Kids laugh while bugs multiply
+         * Joy in both still found
+         */
+        
         /* Base styles */
         body {
             margin: 0;
@@ -20,9 +26,10 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            transition: all 0.5s ease;
         }
 
-        /* Full page animated gradient background */
+        /* Full page animated gradient background - NO FADE */
         .gradient-bg {
             position: fixed;
             top: 0;
@@ -31,9 +38,42 @@
             bottom: 0;
             background: linear-gradient(45deg, #ff71ce, #01cdfe, #b967ff, #ff71ce);
             background-size: 300% 300%;
-            opacity: 0.35;
+            opacity: 0.35; /* Slightly increased opacity */
             z-index: -2;
             animation: gradient-shift 15s ease infinite;
+            transition: all 0.5s ease;
+        }
+
+        /* Tired mode styles */
+        body.tired-mode {
+            filter: saturate(0.5) contrast(0.9);
+        }
+
+        body.tired-mode .gradient-bg {
+            animation-duration: 30s; /* Slower animation when tired */
+            opacity: 0.2;
+        }
+
+        body.tired-mode .profile-img {
+            animation-duration: 6s; /* Slower pulse when tired */
+            filter: grayscale(0.3);
+        }
+
+        body.tired-mode::after {
+            content: "☕ Need more coffee...";
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            animation: fade-in-out 4s ease infinite;
+        }
+
+        @keyframes fade-in-out {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.9; }
         }
 
         .container {
@@ -74,6 +114,7 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
+            transition: all 0.5s ease;
         }
 
         /* Intro text */
@@ -168,6 +209,29 @@
             100% { opacity: 0.3; }
         }
 
+        /* Konami code success animation */
+        @keyframes rainbow-flash {
+            0% { filter: hue-rotate(0deg) brightness(1); }
+            25% { filter: hue-rotate(90deg) brightness(1.2); }
+            50% { filter: hue-rotate(180deg) brightness(1.3); }
+            75% { filter: hue-rotate(270deg) brightness(1.2); }
+            100% { filter: hue-rotate(360deg) brightness(1); }
+        }
+
+        body.konami-activated .gradient-bg {
+            animation: rainbow-flash 2s linear infinite;
+            opacity: 0.5;
+        }
+
+        /* Secret sparkle element for Konami code */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 480px) {
             .profile-img {
@@ -204,5 +268,119 @@
             </a>
         </div>
     </div>
+
+    <!-- Easter Egg Scripts -->
+    <script>
+        // Easter Egg 1: Check URL for tired parent mode
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('coffee') === 'depleted') {
+                document.body.classList.add('tired-mode');
+                console.log('Tired parent mode activated. Hang in there!');
+            }
+        });
+
+        // Easter Egg 2: Konami Code
+        let konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+
+        window.addEventListener('keydown', (e) => {
+            // Check if the key matches the next key in the Konami code sequence
+            if (e.key.toLowerCase() === konamiSequence[konamiIndex].toLowerCase()) {
+                konamiIndex++;
+                
+                // If the entire sequence is complete
+                if (konamiIndex === konamiSequence.length) {
+                    activateKonamiCode();
+                    konamiIndex = 0; // Reset for next time
+                }
+            } else {
+                konamiIndex = 0; // Reset if sequence interrupted
+            }
+        });
+
+        function activateKonamiCode() {
+            // Play a wake-up sound
+            const sound = new Audio();
+            sound.src = "data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAASAAAeMwAUFBQUFCIiIiIiIjAwMDAwMD4+Pj4+PkxMTExMTFpaWlpaWmhoaGhoaHZ2dnZ2doSEhISEhJKSkpKSkqCgoKCgoK6urq6urrKysrKysr6+vr6+vsbGxsbGxtTU1NTU1OLi4uLi4vDw8PDw8P///////////////wAAAABMYXZjNTguMTMAAAAAAAAAAAAAAAAkAAAAAAAAAAAeM5XdYwAAAAAAAAAAAAAAAAD/+xBkAA/wJALZ3mAAACwgWzvMYACEWyNH+YEAIpMbePgwI4QAAD+f/nf5P+uW1uiSVtdvt9viwX5nK/5bHlspISEhE4NCo9E4VDQfacK4TIKT0mmdRo8jKDJpAGPYIlwUJoQhomva//sQZBIP8XsLWdmMAAIu4Wr7MCAARvwtWWeeAAjMBWu484AASccTiQRJ55Tyx8CblrUdUtn/5hGD/8b5QE6r/lH4R+g/+hm8WluNnHHHG3M8v5/fz+XRaP/+xBkEY/wuw3YWc88AjDhe0s5h4BGlDFdZ56AAMkGa+z3HgAd66P3eiT0mU9mVR9RWTyl/NjmX///2X4l/NiqX5fqU4o5dkVI/b/X6OXXVHLnx/L/5f7yuDguTk4OPBwcwMDBO4uBnf/7EGQYAAIvDllZ7DwAMCF7G0QlgIkIMWdnsPA4wYYs7PMeADlwQFBQUSsUioVAwGBQXCwWnVlY2Vlf8O8UC/taKtfo898v5/9FXL8Mv5ocy5/mRpHFNAoVCcKhUZjEWj4IDmo8V//sQZAWP8d0J11mGLEQzwSsLPMY4h4gvX2ewxZDVBOts9hSAGdNKdHkJS4KD4WDwkHB044WKw4Piwfx8fz8+/i4/n8Xg4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==";
+            sound.volume = 0.5;
+            sound.play().catch(e => console.log("Audio playback failed: " + e));
+            
+            // Add visual effects
+            document.body.classList.add('konami-activated');
+            
+            // Create sparkles
+            createSparkles();
+            
+            // Show a fun message
+            const message = document.createElement('div');
+            message.style.position = 'fixed';
+            message.style.top = '10px';
+            message.style.left = '0';
+            message.style.right = '0';
+            message.style.textAlign = 'center';
+            message.style.fontSize = '24px';
+            message.style.fontWeight = 'bold';
+            message.style.color = '#ff71ce';
+            message.style.textShadow = '0 0 10px #ff71ce';
+            message.style.zIndex = '9999';
+            message.innerText = 'SUPER PARENT MODE ACTIVATED!';
+            document.body.appendChild(message);
+            
+            // Remove effects after 5 seconds
+            setTimeout(() => {
+                document.body.classList.remove('konami-activated');
+                document.body.removeChild(message);
+                removeSparkles();
+            }, 5000);
+        }
+
+        function createSparkles() {
+            // Create 50 sparkle elements
+            for (let i = 0; i < 50; i++) {
+                createSparkle();
+            }
+        }
+
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.innerHTML = '✨';
+            sparkle.style.fontSize = Math.random() * 20 + 10 + 'px';
+            sparkle.style.left = Math.random() * window.innerWidth + 'px';
+            sparkle.style.top = Math.random() * window.innerHeight + 'px';
+            sparkle.style.opacity = '0';
+            document.body.appendChild(sparkle);
+            
+            // Animate the sparkle
+            setTimeout(() => {
+                sparkle.style.opacity = '1';
+                
+                // Move the sparkle randomly
+                const animation = sparkle.animate([
+                    { transform: 'translate(0, 0) rotate(0deg)', opacity: 1 },
+                    { transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: Math.random() * 3000 + 2000,
+                    easing: 'cubic-bezier(0.1, 0.8, 0.2, 1)'
+                });
+                
+                animation.onfinish = () => {
+                    if (sparkle.parentNode) {
+                        document.body.removeChild(sparkle);
+                    }
+                };
+            }, Math.random() * 1000);
+        }
+
+        function removeSparkles() {
+            const sparkles = document.querySelectorAll('.sparkle');
+            sparkles.forEach(sparkle => {
+                if (sparkle.parentNode) {
+                    document.body.removeChild(sparkle);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
