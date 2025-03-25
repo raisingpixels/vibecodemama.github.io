@@ -30,7 +30,7 @@ This is a personal landing page with major vaporwave/synthwave vibes. The site f
 
 1. Clone this repo
 ```bash
-git clone https://github.com/vibecodemama/vibecodemama.github.io
+git clone https://github.com/vibecodemama/vibecodemama.github.io.git
 ```
 
 2. Open index.html in your browser of choice
