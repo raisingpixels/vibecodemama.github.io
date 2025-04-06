@@ -20,12 +20,12 @@
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
             text-align: center;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
             transition: all 0.5s ease;
         }
 
@@ -38,7 +38,7 @@
             bottom: 0;
             background: linear-gradient(45deg, #ff71ce, #01cdfe, #b967ff, #ff71ce);
             background-size: 300% 300%;
-            opacity: 0.35;
+            opacity: 0.35; /* Slightly increased opacity */
             z-index: -2;
             animation: gradient-shift 15s ease infinite;
             transition: all 0.5s ease;
@@ -77,8 +77,8 @@
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 600px;
+            margin: 2rem auto;
             padding: 2rem;
             position: relative;
             z-index: 1;
@@ -88,7 +88,7 @@
         }
 
         /* Container glow effect */
-        .container::before {
+        .container::before, .repos-section::before {
             content: '';
             position: absolute;
             top: -2px;
@@ -130,7 +130,6 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-bottom: 2rem;
         }
 
         .social-link {
@@ -143,7 +142,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
+            text-decoration: none; /* Remove underline */
         }
 
         .social-link:hover {
@@ -233,25 +232,7 @@
             transition: opacity 0.3s;
         }
 
-        /* Repositories section */
-        .repos-section {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease, opacity 0.5s ease;
-            opacity: 0;
-            text-align: left;
-            margin-top: 0;
-        }
-
-        .repos-section.active {
-            max-height: 500px;
-            opacity: 1;
-            margin-top: 2rem;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            overscroll-behavior: contain;
-        }
-
+        /* Repositories section - now outside the main container */
         .repos-toggle {
             cursor: pointer;
             background: none;
@@ -262,11 +243,12 @@
             font-size: 1rem;
             font-weight: bold;
             transition: all 0.3s ease;
-            margin-top: 1rem;
+            margin: 1rem 0;
             position: relative;
             overflow: hidden;
             text-shadow: 0 0 5px #01cdfe;
             box-shadow: 0 0 10px rgba(1, 205, 254, 0.3);
+            z-index: 1;
         }
 
         .repos-toggle:hover {
@@ -294,11 +276,27 @@
             left: 100%;
         }
 
+        .repos-section {
+            display: none;
+            max-width: 800px;
+            width: 90%;
+            margin: 0 auto 2rem auto;
+            padding: 1.5rem;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .repos-section.active {
+            display: block;
+        }
+
         .repo-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
-            margin-top: 1.5rem;
         }
 
         .repo-card {
@@ -405,22 +403,11 @@
                 grid-template-columns: 1fr;
             }
             
-            .container {
+            .container, .repos-section {
                 padding: 1.5rem;
                 margin: 1rem;
                 width: calc(100% - 2rem);
                 max-width: none;
-            }
-
-            .repos-section.active {
-                max-height: 50vh;
-                padding-right: 5px;
-            }
-        }
-
-        @media (max-height: 600px) {
-            .repos-section.active {
-                max-height: 40vh;
             }
         }
 
@@ -458,13 +445,13 @@
                 <i class="fab fa-github"></i>
             </a>
         </div>
+    </div>
 
-        <!-- Repository section -->
-        <button class="repos-toggle">Show my projects ✨</button>
-        <div class="repos-section">
-            <div id="repos-container">
-                <div class="loading"></div>
-            </div>
+    <!-- Repository section - moved outside the main container -->
+    <button class="repos-toggle">Show my projects ✨</button>
+    <div class="repos-section">
+        <div id="repos-container">
+            <div class="loading"></div>
         </div>
     </div>
 
