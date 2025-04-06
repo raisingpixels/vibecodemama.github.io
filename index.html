@@ -38,7 +38,7 @@
             bottom: 0;
             background: linear-gradient(45deg, #ff71ce, #01cdfe, #b967ff, #ff71ce);
             background-size: 300% 300%;
-            opacity: 0.35; /* Slightly increased opacity */
+            opacity: 0.35;
             z-index: -2;
             animation: gradient-shift 15s ease infinite;
             transition: all 0.5s ease;
@@ -77,7 +77,7 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
             position: relative;
@@ -130,6 +130,7 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .social-link {
@@ -142,7 +143,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none; /* Remove underline */
+            text-decoration: none;
         }
 
         .social-link:hover {
@@ -232,7 +233,188 @@
             transition: opacity 0.3s;
         }
 
+        /* Repositories section */
+        .repos-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            text-align: left;
+            margin-top: 0;
+        }
+
+        .repos-section.active {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 2rem;
+            overflow-y: auto;
+        }
+
+        .repos-toggle {
+            cursor: pointer;
+            background: none;
+            border: 2px solid #01cdfe;
+            color: #01cdfe;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 0 0 5px #01cdfe;
+            box-shadow: 0 0 10px rgba(1, 205, 254, 0.3);
+        }
+
+        .repos-toggle:hover {
+            background-color: rgba(1, 205, 254, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(1, 205, 254, 0.4);
+        }
+
+        .repos-toggle:focus {
+            outline: none;
+        }
+
+        .repos-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 205, 254, 0.3), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .repos-toggle:hover::before {
+            left: 100%;
+        }
+
+        .repo-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .repo-card {
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 10px;
+            padding: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border: 1px solid rgba(185, 103, 255, 0.3);
+        }
+
+        .repo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff71ce, #01cdfe);
+            opacity: 0.7;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 113, 206, 0.2);
+            background-color: rgba(30, 30, 30, 0.8);
+        }
+
+        .repo-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #b967ff;
+            text-shadow: 0 0 5px rgba(185, 103, 255, 0.5);
+        }
+
+        .repo-description {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+            height: 40px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .repo-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .repo-link {
+            display: inline-block;
+            color: #01cdfe;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .repo-link:hover {
+            color: #ff71ce;
+            text-shadow: 0 0 5px rgba(255, 113, 206, 0.8);
+        }
+
+        .repo-language {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .language-color {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+            background-color: #ccc;
+        }
+
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin: 0 auto;
+            border: 3px solid rgba(1, 205, 254, 0.3);
+            border-radius: 50%;
+            border-top-color: #01cdfe;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .repo-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1.5rem;
+                margin: 1rem;
+                width: calc(100% - 2rem);
+                max-width: none;
+            }
+
+            .repos-section.active {
+                max-height: 400px;
+            }
+        }
+
         @media (max-width: 480px) {
             .profile-img {
                 width: 150px;
@@ -266,6 +448,14 @@
             <a href="https://github.com/vibecodemama" class="social-link github" aria-label="GitHub Profile">
                 <i class="fab fa-github"></i>
             </a>
+        </div>
+
+        <!-- Repository section -->
+        <button class="repos-toggle">Show my projects ✨</button>
+        <div class="repos-section">
+            <div id="repos-container">
+                <div class="loading"></div>
+            </div>
         </div>
     </div>
 
@@ -381,6 +571,125 @@
                 }
             });
         }
+
+        // Repositories section toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const reposToggle = document.querySelector('.repos-toggle');
+            const reposSection = document.querySelector('.repos-section');
+
+            reposToggle.addEventListener('click', () => {
+                reposSection.classList.toggle('active');
+                if (reposSection.classList.contains('active')) {
+                    reposToggle.textContent = 'Hide my projects 👀';
+                    fetchRepositories();
+                } else {
+                    reposToggle.textContent = 'Show my projects ✨';
+                }
+            });
+
+            // Language color mapping
+            const languageColors = {
+                "JavaScript": "#f1e05a",
+                "TypeScript": "#2b7489",
+                "HTML": "#e34c26",
+                "CSS": "#563d7c",
+                "Python": "#3572A5",
+                "Java": "#b07219",
+                "Ruby": "#701516",
+                "Go": "#00ADD8",
+                "C#": "#178600",
+                "PHP": "#4F5D95",
+                "C++": "#f34b7d",
+                "Shell": "#89e051",
+                "Swift": "#ffac45",
+                "Kotlin": "#F18E33",
+                "Rust": "#dea584"
+            };
+
+            // Function to fetch repositories from the JSON file
+            function fetchRepositories() {
+                const reposContainer = document.getElementById('repos-container');
+                
+                // Check if we've already loaded the repos
+                if (reposContainer.querySelector('.repo-list')) {
+                    return;
+                }
+
+                // Display loading spinner
+                reposContainer.innerHTML = '<div class="loading"></div>';
+                
+                // Fetch the repositories from the generated JSON file
+                fetch('/repos.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to fetch repositories');
+                        }
+                        return response.json();
+                    })
+                    .then(repos => {
+                        displayRepositories(repos);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching repositories:', error);
+                        reposContainer.innerHTML = `
+                            <p style="text-align: center; color: #ff71ce;">
+                                ✨ Repositories will appear here once the GitHub Action runs! ✨
+                            </p>
+                        `;
+                    });
+            }
+
+            // Function to display repositories
+            function displayRepositories(repos) {
+                const reposContainer = document.getElementById('repos-container');
+                
+                // Sort repos by last updated date (latest first)
+                repos.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+                
+                const repoList = document.createElement('div');
+                repoList.className = 'repo-list';
+                
+                repos.forEach(repo => {
+                    // Skip forked repositories if you want
+                    // if (repo.fork) return;
+                    
+                    const repoCard = document.createElement('div');
+                    repoCard.className = 'repo-card';
+                    
+                    // Format the updated date
+                    const updatedDate = new Date(repo.updatedAt);
+                    const formattedDate = updatedDate.toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                    });
+                    
+                    // Get language color
+                    const languageColor = languageColors[repo.language] || '#ccc';
+                    
+                    repoCard.innerHTML = `
+                        <div class="repo-name">${repo.name}</div>
+                        <div class="repo-description">${repo.description || 'No description available'}</div>
+                        ${repo.language ? `
+                            <div class="repo-language">
+                                <span class="language-color" style="background-color: ${languageColor}"></span>
+                                ${repo.language}
+                            </div>
+                        ` : ''}
+                        <div class="repo-meta">
+                            <span>Updated: ${formattedDate}</span>
+                            <span>⭐ ${repo.stargazerCount}</span>
+                        </div>
+                        <a href="${repo.url}" class="repo-link" target="_blank">View on GitHub →</a>
+                    `;
+                    
+                    repoList.appendChild(repoCard);
+                });
+                
+                reposContainer.innerHTML = '';
+                reposContainer.appendChild(repoList);
+            }
+        });
     </script>
 </body>
 </html>
