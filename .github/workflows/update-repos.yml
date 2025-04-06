@@ -38,7 +38,7 @@ jobs:
                       primaryLanguage {
                         name
                       }
-                      fork
+                      isFork
                     }
                   }
                 }
@@ -60,7 +60,7 @@ jobs:
               isArchived: repo.isArchived,
               isTemplate: repo.isTemplate,
               language: repo.primaryLanguage ? repo.primaryLanguage.name : null,
-              fork: repo.fork
+              fork: repo.isFork
             }));
             
             const fs = require('fs');
