@@ -248,6 +248,8 @@
             opacity: 1;
             margin-top: 2rem;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
         }
 
         .repos-toggle {
@@ -411,7 +413,14 @@
             }
 
             .repos-section.active {
-                max-height: 400px;
+                max-height: 50vh;
+                padding-right: 5px;
+            }
+        }
+
+        @media (max-height: 600px) {
+            .repos-section.active {
+                max-height: 40vh;
             }
         }
 
