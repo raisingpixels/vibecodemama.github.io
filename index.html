@@ -78,7 +78,7 @@
 
         .container {
             max-width: 600px;
-            margin: 2rem auto;
+            margin: 15vh auto 2rem auto; /* Increased top margin to 15vh */
             padding: 2rem;
             position: relative;
             z-index: 1;
@@ -284,9 +284,8 @@
             padding: 1.5rem;
             position: relative;
             z-index: 1;
-            background-color: rgba(0, 0, 0, 0.7);
             border-radius: 15px;
-            backdrop-filter: blur(5px);
+            /* Removed background color */
         }
 
         .repos-section.active {
@@ -300,7 +299,7 @@
         }
 
         .repo-card {
-            background-color: rgba(20, 20, 20, 0.7);
+            /* Removed background color */
             border-radius: 10px;
             padding: 1rem;
             position: relative;
@@ -323,7 +322,7 @@
         .repo-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(255, 113, 206, 0.2);
-            background-color: rgba(30, 30, 30, 0.8);
+            /* Removed background color on hover */
         }
 
         .repo-name {
@@ -403,11 +402,17 @@
                 grid-template-columns: 1fr;
             }
             
-            .container, .repos-section {
+            .container {
+                padding: 1.5rem;
+                margin: 10vh 1rem 1rem 1rem; /* Adjust top margin for mobile */
+                width: calc(100% - 2rem);
+                max-width: none;
+            }
+            
+            .repos-section {
                 padding: 1.5rem;
                 margin: 1rem;
                 width: calc(100% - 2rem);
-                max-width: none;
             }
         }
 
