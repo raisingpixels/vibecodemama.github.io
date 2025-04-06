@@ -1,12 +1,10 @@
 # ✨ vibecodemama landing page ✨
 
 ```
- _   _ _ _           ___          _      ___  ___                       
-| | | (_) |__   ___ / __\___   __| | ___|  \/  | __ _ _ __ ___   __ _  
-| | | | | '_ \ / _ / /  / _ \ / _` |/ _ \ |\/| |/ _` | '_ ` _ \ / _` | 
-| |_| | | |_) |  __/ /__| (_) | (_| |  __/ |  | | (_| | | | | | | (_| | 
- \___/|_|_.__/ \___\____/\___/ \__,_|\___|_|  |_|\__,_|_| |_| |_|\__,_| 
-                                                                        
+ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+||V |||i |||b |||e |||C |||o |||d |||e |||M |||a |||m |||a ||
+||__|||__|||__|||__|||__|||__|||__|||__|||__|||__|||__|||__||
+|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 ```
 
 ## 🎸 About This Project
@@ -66,8 +64,6 @@ Got ideas to make this landing page even more parent-coder friendly? Submit a PR
 ## 📝 License
 
 MIT License (aka the "Please Use This However You Want, I'm Too Busy To Care!" license)
-
----
 
 <div align="center">
   <sub>Made with ❤️ and ☕ between toddler naps</sub>
