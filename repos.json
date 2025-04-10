@@ -1,9 +1,21 @@
 [
   {
-    "name": "vibecodemama.github.io",
-    "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
-    "url": "https://github.com/vibecodemama/vibecodemama.github.io",
-    "updatedAt": "2025-04-08T03:07:37Z",
+    "name": "toddler-activity-finder",
+    "description": "100+ activities for toddlers! Filter by materials, benefits, time commitment, and messiness.",
+    "url": "https://github.com/vibecodemama/toddler-activity-finder",
+    "updatedAt": "2025-04-10T01:41:54Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "JavaScript",
+    "fork": false
+  },
+  {
+    "name": "top-picks",
+    "description": "Family-vetted goods. Avoid toxins, expect high-quality, and support Made in USA companies.",
+    "url": "https://github.com/vibecodemama/top-picks",
+    "updatedAt": "2025-04-10T00:24:21Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
@@ -12,15 +24,15 @@
     "fork": false
   },
   {
-    "name": "toddler-activity-finder",
-    "description": "100+ activities for toddlers! Filter by materials, benefits, time commitment, and messiness.",
-    "url": "https://github.com/vibecodemama/toddler-activity-finder",
-    "updatedAt": "2025-04-07T13:19:04Z",
+    "name": "vibecodemama.github.io",
+    "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
+    "url": "https://github.com/vibecodemama/vibecodemama.github.io",
+    "updatedAt": "2025-04-09T03:09:05Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
     "isTemplate": false,
-    "language": "JavaScript",
+    "language": "HTML",
     "fork": false
   },
   {
