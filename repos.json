@@ -1,9 +1,21 @@
 [
   {
+    "name": "top-picks",
+    "description": "Family-vetted goods. Avoid toxins, expect high-quality, and support Made in USA companies.",
+    "url": "https://github.com/vibecodemama/top-picks",
+    "updatedAt": "2025-04-13T19:15:22Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
     "name": "vibecodemama.github.io",
     "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
     "url": "https://github.com/vibecodemama/vibecodemama.github.io",
-    "updatedAt": "2025-04-12T03:06:23Z",
+    "updatedAt": "2025-04-13T04:37:23Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
@@ -21,18 +33,6 @@
     "isArchived": false,
     "isTemplate": false,
     "language": "JavaScript",
-    "fork": false
-  },
-  {
-    "name": "top-picks",
-    "description": "Family-vetted goods. Avoid toxins, expect high-quality, and support Made in USA companies.",
-    "url": "https://github.com/vibecodemama/top-picks",
-    "updatedAt": "2025-04-10T00:24:21Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "HTML",
     "fork": false
   },
   {
