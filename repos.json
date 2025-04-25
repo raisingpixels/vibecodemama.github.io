@@ -1,9 +1,21 @@
 [
   {
+    "name": "carnivore-calculator",
+    "description": "A calculator to figure out how much meat to eat, as determined by your protein requirement.",
+    "url": "https://github.com/vibecodemama/carnivore-calculator",
+    "updatedAt": "2025-04-25T00:40:08Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
     "name": "vibecodemama.github.io",
     "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
     "url": "https://github.com/vibecodemama/vibecodemama.github.io",
-    "updatedAt": "2025-04-23T03:12:38Z",
+    "updatedAt": "2025-04-24T01:01:47Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
