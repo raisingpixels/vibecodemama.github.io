@@ -1,9 +1,21 @@
 [
   {
+    "name": "tdee",
+    "description": "Calculate your Total Daily Energy Expenditure.",
+    "url": "https://github.com/vibecodemama/tdee",
+    "updatedAt": "2025-05-04T19:32:38Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": null,
+    "fork": false
+  },
+  {
     "name": "vibecodemama.github.io",
     "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
     "url": "https://github.com/vibecodemama/vibecodemama.github.io",
-    "updatedAt": "2025-05-03T01:01:01Z",
+    "updatedAt": "2025-05-04T01:08:39Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
