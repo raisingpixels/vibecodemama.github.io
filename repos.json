@@ -1,9 +1,21 @@
 [
   {
+    "name": "toddler-activity-finder",
+    "description": "100+ activities for toddlers! Filter by materials, benefits, time commitment, and messiness.",
+    "url": "https://github.com/vibecodemama/toddler-activity-finder",
+    "updatedAt": "2025-05-12T09:27:47Z",
+    "stargazerCount": 1,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "JavaScript",
+    "fork": false
+  },
+  {
     "name": "vibecodemama.github.io",
     "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
     "url": "https://github.com/vibecodemama/vibecodemama.github.io",
-    "updatedAt": "2025-05-11T01:07:34Z",
+    "updatedAt": "2025-05-12T01:05:51Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
@@ -45,18 +57,6 @@
     "isArchived": false,
     "isTemplate": false,
     "language": "HTML",
-    "fork": false
-  },
-  {
-    "name": "toddler-activity-finder",
-    "description": "100+ activities for toddlers! Filter by materials, benefits, time commitment, and messiness.",
-    "url": "https://github.com/vibecodemama/toddler-activity-finder",
-    "updatedAt": "2025-04-10T01:41:54Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "JavaScript",
     "fork": false
   },
   {
