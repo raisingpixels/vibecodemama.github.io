@@ -1,9 +1,21 @@
 [
   {
+    "name": "nontoxicgoods",
+    "description": "Family-vetted goods. Avoid toxins, expect high-quality, and support Made in USA companies.",
+    "url": "https://github.com/vibecodemama/nontoxicgoods",
+    "updatedAt": "2025-05-17T00:43:25Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
     "name": "vibecodemama.github.io",
     "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
     "url": "https://github.com/vibecodemama/vibecodemama.github.io",
-    "updatedAt": "2025-05-15T01:00:40Z",
+    "updatedAt": "2025-05-16T01:04:20Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
@@ -40,18 +52,6 @@
     "description": "A calculator to figure out how much meat to eat, as determined by your protein requirement.",
     "url": "https://github.com/vibecodemama/carnivore-calculator",
     "updatedAt": "2025-05-02T19:37:20Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "HTML",
-    "fork": false
-  },
-  {
-    "name": "top-picks",
-    "description": "Family-vetted goods. Avoid toxins, expect high-quality, and support Made in USA companies.",
-    "url": "https://github.com/vibecodemama/top-picks",
-    "updatedAt": "2025-04-13T19:15:22Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
