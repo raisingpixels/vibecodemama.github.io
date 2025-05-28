@@ -1,9 +1,33 @@
 [
   {
+    "name": "tdee",
+    "description": "Calculate your Total Daily Energy Expenditure.",
+    "url": "https://github.com/vibecodemama/tdee",
+    "updatedAt": "2025-05-27T20:43:08Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": null,
+    "fork": false
+  },
+  {
+    "name": "carnivore-calculator",
+    "description": "A calculator to figure out how much meat to eat, as determined by your protein requirement.",
+    "url": "https://github.com/vibecodemama/carnivore-calculator",
+    "updatedAt": "2025-05-27T20:41:59Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
     "name": "vibecodemama.github.io",
     "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
     "url": "https://github.com/vibecodemama/vibecodemama.github.io",
-    "updatedAt": "2025-05-26T01:05:49Z",
+    "updatedAt": "2025-05-27T01:03:19Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
@@ -33,30 +57,6 @@
     "isArchived": false,
     "isTemplate": false,
     "language": "JavaScript",
-    "fork": false
-  },
-  {
-    "name": "tdee",
-    "description": "Calculate your Total Daily Energy Expenditure.",
-    "url": "https://github.com/vibecodemama/tdee",
-    "updatedAt": "2025-05-04T19:32:38Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": null,
-    "fork": false
-  },
-  {
-    "name": "carnivore-calculator",
-    "description": "A calculator to figure out how much meat to eat, as determined by your protein requirement.",
-    "url": "https://github.com/vibecodemama/carnivore-calculator",
-    "updatedAt": "2025-05-02T19:37:20Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "HTML",
     "fork": false
   },
   {
