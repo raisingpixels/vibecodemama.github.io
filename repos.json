@@ -1,5 +1,17 @@
 [
   {
+    "name": "vibecodemama.github.io",
+    "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
+    "url": "https://github.com/vibecodemama/vibecodemama.github.io",
+    "updatedAt": "2025-05-30T01:02:46Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
     "name": "mamacarnivore.com",
     "description": null,
     "url": "https://github.com/vibecodemama/mamacarnivore.com",
@@ -9,18 +21,6 @@
     "isArchived": false,
     "isTemplate": false,
     "language": "CSS",
-    "fork": false
-  },
-  {
-    "name": "vibecodemama.github.io",
-    "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
-    "url": "https://github.com/vibecodemama/vibecodemama.github.io",
-    "updatedAt": "2025-05-29T01:04:42Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "HTML",
     "fork": false
   },
   {
