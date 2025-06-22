@@ -1,9 +1,9 @@
 [
   {
-    "name": "vibecodemama.github.io",
-    "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
-    "url": "https://github.com/vibecodemama/vibecodemama.github.io",
-    "updatedAt": "2025-06-20T01:05:31Z",
+    "name": "nontoxicgoods",
+    "description": "Family-vetted goods. Avoid toxins, expect high-quality, and support Made in USA companies.",
+    "url": "https://github.com/vibecodemama/nontoxicgoods",
+    "updatedAt": "2025-06-21T23:55:10Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
@@ -12,10 +12,22 @@
     "fork": false
   },
   {
-    "name": "nontoxicgoods",
-    "description": "Family-vetted goods. Avoid toxins, expect high-quality, and support Made in USA companies.",
-    "url": "https://github.com/vibecodemama/nontoxicgoods",
-    "updatedAt": "2025-06-11T13:09:55Z",
+    "name": "tdee",
+    "description": "Calculate your Total Daily Energy Expenditure.",
+    "url": "https://github.com/vibecodemama/tdee",
+    "updatedAt": "2025-06-21T23:53:54Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": null,
+    "fork": false
+  },
+  {
+    "name": "vibecodemama.github.io",
+    "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
+    "url": "https://github.com/vibecodemama/vibecodemama.github.io",
+    "updatedAt": "2025-06-21T01:04:31Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
@@ -33,18 +45,6 @@
     "isArchived": false,
     "isTemplate": false,
     "language": "CSS",
-    "fork": false
-  },
-  {
-    "name": "tdee",
-    "description": "Calculate your Total Daily Energy Expenditure.",
-    "url": "https://github.com/vibecodemama/tdee",
-    "updatedAt": "2025-05-28T18:37:04Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": null,
     "fork": false
   },
   {
