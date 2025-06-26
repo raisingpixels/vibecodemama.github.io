@@ -1,5 +1,17 @@
 [
   {
+    "name": "vibecodemama.github.io",
+    "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
+    "url": "https://github.com/vibecodemama/vibecodemama.github.io",
+    "updatedAt": "2025-06-25T01:06:45Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
     "name": "hugo-theme-demo",
     "description": "A comprehensive template repository for developing and testing Hugo themes with rich example content and development tools.",
     "url": "https://github.com/vibecodemama/hugo-theme-demo",
@@ -9,18 +21,6 @@
     "isArchived": false,
     "isTemplate": false,
     "language": "Shell",
-    "fork": false
-  },
-  {
-    "name": "vibecodemama.github.io",
-    "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
-    "url": "https://github.com/vibecodemama/vibecodemama.github.io",
-    "updatedAt": "2025-06-24T01:06:15Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "HTML",
     "fork": false
   },
   {
