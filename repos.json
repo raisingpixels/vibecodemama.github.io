@@ -1,9 +1,33 @@
 [
   {
+    "name": "hugoThemesSiteBuilder",
+    "description": "The source for https://themes.gohugo.io",
+    "url": "https://github.com/vibecodemama/hugoThemesSiteBuilder",
+    "updatedAt": "2025-06-27T19:19:56Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "Go",
+    "fork": true
+  },
+  {
+    "name": "vintage-web",
+    "description": "Hugo theme for 1999.",
+    "url": "https://github.com/vibecodemama/vintage-web",
+    "updatedAt": "2025-06-27T19:16:57Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
     "name": "vibecodemama.github.io",
     "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
     "url": "https://github.com/vibecodemama/vibecodemama.github.io",
-    "updatedAt": "2025-06-26T01:05:55Z",
+    "updatedAt": "2025-06-27T01:06:33Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
