@@ -1,9 +1,9 @@
 [
   {
-    "name": "vintage-web",
-    "description": "Hugo theme for 1999.",
-    "url": "https://github.com/vibecodemama/vintage-web",
-    "updatedAt": "2025-06-28T01:54:44Z",
+    "name": "vibecodemama.github.io",
+    "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
+    "url": "https://github.com/vibecodemama/vibecodemama.github.io",
+    "updatedAt": "2025-06-29T03:47:08Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
@@ -12,10 +12,22 @@
     "fork": false
   },
   {
-    "name": "vibecodemama.github.io",
-    "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
-    "url": "https://github.com/vibecodemama/vibecodemama.github.io",
-    "updatedAt": "2025-06-28T01:04:15Z",
+    "name": "hugo-theme-base",
+    "description": "A full-featured unstyled base theme for Hugo static site generator. Ready to customize (see README for prompt ideas)!",
+    "url": "https://github.com/vibecodemama/hugo-theme-base",
+    "updatedAt": "2025-06-29T02:51:26Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
+    "name": "vintage-web",
+    "description": "Hugo theme for 1999.",
+    "url": "https://github.com/vibecodemama/vintage-web",
+    "updatedAt": "2025-06-28T01:54:44Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
