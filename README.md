@@ -8,10 +8,7 @@ A minimal, aesthetic personal webpage. Built with a lofi/vaporwave aesthetic ins
 
 - **Lofi Aesthetic**: Sunset gradient backgrounds with glassmorphism effects
 - **Responsive Design**: Looks great on all devices
-- **Smart Theme System**:
-  - Respects system preference by default
-  - Manual toggle: System → Light → Dark → System
-  - Uses CSS media queries for true responsiveness
+- **Responsive Light and Dark Mode**: Respects system preference using CSS media queries
 - **Auto-Updating Portfolio**: GitHub Action automatically fetches and displays latest repositories
 - **Clean Typography**: JetBrains Mono + Crimson Text pairing
 - **Minimal Social Links**: Icon-based GitHub and X/Twitter links
@@ -92,21 +89,6 @@ The site automatically updates your repository showcase daily using a GitHub Act
 - Responsive design works on all screen sizes
 - Graceful fallbacks for older browsers
 - Progressive enhancement approach
-
-## 🌙 Theme System Details
-
-The theme system is designed to be respectful and smart:
-
-1. **Default**: Respects user’s system preference (`prefers-color-scheme`)
-2. **Light Override**: Force light mode regardless of system
-3. **Dark Override**: Force dark mode regardless of system
-4. **Back to System**: Removes override, returns to system preference
-
-Icons indicate current state:
-
-- ☀️ = Following system preference
-- 🌙 = Light mode override
-- 💻 = Dark mode override
 
 ## 📄 License
 
