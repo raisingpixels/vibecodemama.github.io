@@ -1,13 +1,13 @@
 [
   {
     "name": "raisingpixels.github.io",
-    "description": "A personal landing page with major vaporwave vibes and fun Easter eggs.",
+    "description": "Personal website with lofi aesthetic, responsive design, and auto-updating GitHub repos.",
     "url": "https://github.com/raisingpixels/raisingpixels.github.io",
-    "updatedAt": "2025-06-30T09:51:19Z",
+    "updatedAt": "2025-06-30T10:11:08Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
-    "isTemplate": false,
+    "isTemplate": true,
     "language": "HTML",
     "fork": false
   },
