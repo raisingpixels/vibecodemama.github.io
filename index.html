@@ -1,693 +1,473 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vibecodemama</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌟</text></svg>">
+    <title>raisingpixels</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* 
-         * Code flows like water
-         * Kids laugh while bugs multiply
-         * Joy in both still found
-         */
-        
-        /* Base styles */
-        body {
+        * {
             margin: 0;
             padding: 0;
-            background-color: #000;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            position: relative;
-            overflow-x: hidden;
-            transition: all 0.5s ease;
+            box-sizing: border-box;
         }
 
-        /* Full page animated gradient background */
-        .gradient-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, #ff71ce, #01cdfe, #b967ff, #ff71ce);
-            background-size: 300% 300%;
-            opacity: 0.35; /* Slightly increased opacity */
-            z-index: -2;
-            animation: gradient-shift 15s ease infinite;
-            transition: all 0.5s ease;
-        }
+```
+    :root {
+        /* Light mode colors from profile */
+        --bg-gradient: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 25%, #e17055 50%, #a29bfe 75%, #6c5ce7 100%);
+        --bg-solid: #fdf2f8;
+        --text-primary: #2d3436;
+        --text-secondary: #636e72;
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --card-border: rgba(255, 255, 255, 0.3);
+        --link-color: #6c5ce7;
+        --accent: #e17055;
+        --repo-card-bg: rgba(255, 255, 255, 0.8);
+    }
 
-        /* Tired mode styles */
-        body.tired-mode {
-            filter: saturate(0.5) contrast(0.9);
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --bg-gradient: linear-gradient(135deg, #2d3436 0%, #636e72 25%, #74b9ff 50%, #a29bfe 75%, #6c5ce7 100%);
+            --bg-solid: #2d3436;
+            --text-primary: #ddd6fe;
+            --text-secondary: #c7d2fe;
+            --card-bg: rgba(45, 52, 54, 0.8);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --link-color: #a29bfe;
+            --accent: #fab1a0;
+            --repo-card-bg: rgba(45, 52, 54, 0.7);
         }
+    }
 
-        body.tired-mode .gradient-bg {
-            animation-duration: 30s; /* Slower animation when tired */
-            opacity: 0.2;
-        }
+    [data-theme="light"] {
+        --bg-gradient: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 25%, #e17055 50%, #a29bfe 75%, #6c5ce7 100%);
+        --bg-solid: #fdf2f8;
+        --text-primary: #2d3436;
+        --text-secondary: #636e72;
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --card-border: rgba(255, 255, 255, 0.3);
+        --link-color: #6c5ce7;
+        --accent: #e17055;
+        --repo-card-bg: rgba(255, 255, 255, 0.8);
+    }
 
-        body.tired-mode .profile-img {
-            animation-duration: 6s; /* Slower pulse when tired */
-            filter: grayscale(0.3);
-        }
+    [data-theme="dark"] {
+        --bg-gradient: linear-gradient(135deg, #2d3436 0%, #636e72 25%, #74b9ff 50%, #a29bfe 75%, #6c5ce7 100%);
+        --bg-solid: #2d3436;
+        --text-primary: #ddd6fe;
+        --text-secondary: #c7d2fe;
+        --card-bg: rgba(45, 52, 54, 0.8);
+        --card-border: rgba(255, 255, 255, 0.1);
+        --link-color: #a29bfe;
+        --accent: #fab1a0;
+        --repo-card-bg: rgba(45, 52, 54, 0.7);
+    }
 
-        body.tired-mode::after {
-            content: "☕ Need more coffee...";
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            animation: fade-in-out 4s ease infinite;
-        }
+    body {
+        font-family: 'Crimson Text', serif;
+        background: var(--bg-gradient);
+        min-height: 100vh;
+        color: var(--text-primary);
+        transition: all 0.3s ease;
+    }
 
-        @keyframes fade-in-out {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.9; }
-        }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
 
+    .hero-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding-bottom: 2rem;
+    }
+
+    .card {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--card-border);
+        border-radius: 24px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+        border: 3px solid var(--accent);
+        object-fit: cover;
+        transition: all 0.3s ease;
+    }
+
+    .profile-image:hover {
+        transform: scale(1.05);
+        border-color: var(--link-color);
+    }
+
+    .username {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+        letter-spacing: -0.02em;
+    }
+
+    .tagline {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        line-height: 1.4;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .social-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: var(--link-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+    .social-icon:hover {
+        background: transparent;
+        color: var(--link-color);
+        border-color: var(--link-color);
+        transform: translateY(-2px);
+    }
+
+    .theme-toggle {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.2rem;
+        backdrop-filter: blur(20px);
+        transition: all 0.3s ease;
+        color: var(--text-primary);
+    }
+
+    .theme-toggle:hover {
+        transform: scale(1.1);
+    }
+
+    .pixel-accent {
+        font-family: 'JetBrains Mono', monospace;
+        color: var(--accent);
+    }
+
+    .repos-section {
+        padding: 2rem 0;
+    }
+
+    .section-title {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--text-primary);
+    }
+
+    .repos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .repo-card {
+        background: var(--repo-card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--card-border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .repo-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .repo-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+    }
+
+    .repo-name {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--link-color);
+        margin: 0;
+    }
+
+    .repo-language {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.8rem;
+        background: var(--accent);
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 12px;
+        opacity: 0.8;
+    }
+
+    .repo-description {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .repo-stats {
+        display: flex;
+        gap: 1rem;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+    }
+
+    .repo-stat {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .loading {
+        text-align: center;
+        color: var(--text-secondary);
+        font-style: italic;
+    }
+
+    @media (max-width: 480px) {
         .container {
-            max-width: 600px;
-            margin: 15vh auto 2rem auto; /* Increased top margin to 15vh */
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
-        }
-
-        /* Container glow effect */
-        .container::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #ff71ce, #01cdfe, #b967ff);
-            z-index: -1;
-            border-radius: 16px;
-            opacity: 0.5;
-        }
-
-        /* Profile image with pulsing glow */
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 100%;
-            object-fit: cover;
-            border: 4px solid #01cdfe;
-            box-shadow: 0 0 15px #01cdfe, 0 0 30px #01cdfe;
-            margin-bottom: 2rem;
-            animation: pulse-glow 3s ease-in-out infinite alternate;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            transition: all 0.5s ease;
-        }
-
-        /* Intro text */
-        .intro {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-        }
-
-        /* Social icons */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .social-link {
-            color: white;
-            font-size: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            width: 2rem;
-            height: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none; /* Remove underline */
-        }
-
-        .social-link:hover {
-            transform: translateY(-5px);
-        }
-
-        .social-link.twitter {
-            color: #01cdfe;
-            text-shadow: 0 0 10px #01cdfe;
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            animation: neon-pulse 2s ease-in-out infinite alternate;
-        }
-
-        .social-link.github {
-            color: #b967ff;
-            text-shadow: 0 0 10px #b967ff;
-            animation: neon-pulse 2.5s ease-in-out infinite alternate;
-        }
-
-        /* Custom X icon */
-        .x-icon {
-            font-style: normal;
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        /* Animations */
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 10px #01cdfe, 0 0 20px #01cdfe; }
-            100% { box-shadow: 0 0 20px #01cdfe, 0 0 40px #01cdfe; }
-        }
-
-        @keyframes neon-pulse {
-            0% { text-shadow: 0 0 5px currentColor, 0 0 10px currentColor; }
-            100% { text-shadow: 0 0 10px currentColor, 0 0 20px currentColor; }
-        }
-
-        /* Grid background with animation */
-        .grid-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: linear-gradient(rgba(255, 113, 206, 0.1) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(1, 205, 254, 0.1) 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: -1;
-            perspective: 500px;
-            transform: rotateX(60deg);
-            opacity: 0.2;
-            animation: grid-pulse 8s ease infinite alternate;
-        }
-
-        @keyframes grid-pulse {
-            0% { opacity: 0.1; }
-            100% { opacity: 0.3; }
-        }
-
-        /* Konami code success animation */
-        @keyframes rainbow-flash {
-            0% { filter: hue-rotate(0deg) brightness(1); }
-            25% { filter: hue-rotate(90deg) brightness(1.2); }
-            50% { filter: hue-rotate(180deg) brightness(1.3); }
-            75% { filter: hue-rotate(270deg) brightness(1.2); }
-            100% { filter: hue-rotate(360deg) brightness(1); }
-        }
-
-        body.konami-activated .gradient-bg {
-            animation: rainbow-flash 2s linear infinite;
-            opacity: 0.5;
-        }
-
-        /* Secret sparkle element for Konami code */
-        .sparkle {
-            position: fixed;
-            pointer-events: none;
-            z-index: 999;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        /* Repositories section */
-        .repos-toggle {
-            cursor: pointer;
-            background: none;
-            border: 2px solid #01cdfe;
-            color: #01cdfe;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            margin: 1rem 0;
-            position: relative;
-            overflow: hidden;
-            text-shadow: 0 0 5px #01cdfe;
-            box-shadow: 0 0 10px rgba(1, 205, 254, 0.3);
-            z-index: 1;
-        }
-
-        .repos-toggle:hover {
-            background-color: rgba(1, 205, 254, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(1, 205, 254, 0.4);
-        }
-
-        .repos-toggle:focus {
-            outline: none;
-        }
-
-        .repos-toggle::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(1, 205, 254, 0.3), transparent);
-            transition: left 0.7s ease;
-        }
-
-        .repos-toggle:hover::before {
-            left: 100%;
-        }
-
-        .repos-section {
-            display: none;
-            max-width: 800px;
-            width: 90%;
-            margin: 0 auto 2rem auto;
-            padding: 1.5rem;
-            position: relative;
-            z-index: 1;
-            border-radius: 15px;
-            /* Removed background color */
-        }
-
-        .repos-section.active {
-            display: block;
-        }
-
-        .repo-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .repo-card {
-            /* Removed background color */
-            border-radius: 10px;
             padding: 1rem;
-            position: relative;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            border: 1px solid rgba(185, 103, 255, 0.3);
+        }
+        
+        .card {
+            padding: 1.5rem;
+        }
+        
+        .username {
+            font-size: 1.3rem;
+        }
+        
+        .repos-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
         }
 
-        .repo-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #ff71ce, #01cdfe);
-            opacity: 0.7;
+        .section-title {
+            font-size: 1.5rem;
         }
+    }
+</style>
+```
 
-        .repo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(255, 113, 206, 0.2);
-            /* Removed background color on hover */
-        }
-
-        .repo-name {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #b967ff;
-            text-shadow: 0 0 5px rgba(185, 103, 255, 0.5);
-        }
-
-        .repo-description {
-            font-size: 0.9rem;
-            color: #ccc;
-            margin-bottom: 1rem;
-            height: 40px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-
-        .repo-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .repo-link {
-            display: inline-block;
-            color: #01cdfe;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .repo-link:hover {
-            color: #ff71ce;
-            text-shadow: 0 0 5px rgba(255, 113, 206, 0.8);
-        }
-
-        .repo-language {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .language-color {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-right: 5px;
-            background-color: #ccc;
-        }
-
-        /* Loading animation */
-        .loading {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            margin: 0 auto;
-            border: 3px solid rgba(1, 205, 254, 0.3);
-            border-radius: 50%;
-            border-top-color: #01cdfe;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .repo-list {
-                grid-template-columns: 1fr;
-            }
-            
-            .container {
-                padding: 1.5rem;
-                margin: 10vh 1rem 1rem 1rem;
-                max-width: none;
-            }
-            
-            .repos-section {
-                padding: 1.5rem;
-                margin: 1rem;
-                width: calc(100% - 2rem);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .profile-img {
-                width: 150px;
-                height: 150px;
-            }
-            .intro {
-                font-size: 1rem;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- Animated gradient background that covers the whole page -->
-    <div class="gradient-bg"></div>
-    
-    <!-- Grid overlay -->
-    <div class="grid-bg"></div>
-    
-    <div class="container">
-        <!-- Using the actual profile image -->
-        <img class="profile-img" src="/profile.jpg">
-        
-        <div class="intro">
-            Writing good vibes and useful little tech projects for parent-coders everywhere.
-        </div>
-        
-        <div class="social-icons">
-            <a href="https://github.com/vibecodemama" class="social-link github" aria-label="GitHub Profile">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-    </div>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-    <!-- Repository section - moved outside the main container -->
-    <button class="repos-toggle">Show my projects ✨</button>
-    <div class="repos-section">
+```
+<div class="container">
+    <section class="hero-section">
+        <div class="card">
+            <img src="/profile.jpg" alt="Profile" class="profile-image">
+            
+            <h1 class="username">raising<span class="pixel-accent">pixels</span></h1>
+            <p class="tagline">AI-assisted coding between snacks and naps</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/raisingpixels" class="social-icon" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://x.com/raisingpixels" class="social-icon" title="X (Twitter)">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="repos-section">
+        <h2 class="section-title">Recent Projects</h2>
         <div id="repos-container">
-            <div class="loading"></div>
+            <div class="loading">Loading repositories...</div>
         </div>
-    </div>
+    </section>
+</div>
 
-    <!-- Easter Egg Scripts -->
-    <script>
-        // Easter Egg 1: Check URL for tired parent mode
-        window.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('coffee') === 'depleted') {
-                document.body.classList.add('tired-mode');
-                console.log('Tired parent mode activated. Hang in there!');
-            }
-        });
-
-        // Easter Egg 2: Konami Code
-        let konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-        let konamiIndex = 0;
-
-        window.addEventListener('keydown', (e) => {
-            // Check if the key matches the next key in the Konami code sequence
-            if (e.key.toLowerCase() === konamiSequence[konamiIndex].toLowerCase()) {
-                konamiIndex++;
-                
-                // If the entire sequence is complete
-                if (konamiIndex === konamiSequence.length) {
-                    activateKonamiCode();
-                    konamiIndex = 0; // Reset for next time
-                }
-            } else {
-                konamiIndex = 0; // Reset if sequence interrupted
-            }
-        });
-
-        function activateKonamiCode() {
-            // Play a wake-up sound
-            const sound = new Audio();
-            sound.src = "data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAASAAAeMwAUFBQUFCIiIiIiIjAwMDAwMD4+Pj4+PkxMTExMTFpaWlpaWmhoaGhoaHZ2dnZ2doSEhISEhJKSkpKSkqCgoKCgoK6urq6urrKysrKysr6+vr6+vsbGxsbGxtTU1NTU1OLi4uLi4vDw8PDw8P///////////////wAAAABMYXZjNTguMTMAAAAAAAAAAAAAAAAkAAAAAAAAAAAeM5XdYwAAAAAAAAAAAAAAAAD/+xBkAA/wJALZ3mAAACwgWzvMYACEWyNH+YEAIpMbePgwI4QAAD+f/nf5P+uW1uiSVtdvt9viwX5nK/5bHlspISEhE4NCo9E4VDQfacK4TIKT0mmdRo8jKDJpAGPYIlwUJoQhomva//sQZBIP8XsLWdmMAAIu4Wr7MCAARvwtWWeeAAjMBWu484AASccTiQRJ55Tyx8CblrUdUtn/5hGD/8b5QE6r/lH4R+g/+hm8WluNnHHHG3M8v5/fz+XRaP/+xBkEY/wuw3YWc88AjDhe0s5h4BGlDFdZ56AAMkGa+z3HgAd66P3eiT0mU9mVR9RWTyl/NjmX///2X4l/NiqX5fqU4o5dkVI/b/X6OXXVHLnx/L/5f7yuDguTk4OPBwcwMDBO4uBnf/7EGQYAAIvDllZ7DwAMCF7G0QlgIkIMWdnsPA4wYYs7PMeADlwQFBQUSsUioVAwGBQXCwWnVlY2Vlf8O8UC/taKtfo898v5/9FXL8Mv5ocy5/mRpHFNAoVCcKhUZjEWj4IDmo8V//sQZAWP8d0J11mGLEQzwSsLPMY4h4gvX2ewxZDVBOts9hSAGdNKdHkJS4KD4WDwkHB044WKw4Piwfx8fz8+/i4/n8Xg4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==";
-            sound.volume = 0.5;
-            sound.play().catch(e => console.log("Audio playback failed: " + e));
-            
-            // Add visual effects
-            document.body.classList.add('konami-activated');
-            
-            // Create sparkles
-            createSparkles();
-            
-            // Show a fun message
-            const message = document.createElement('div');
-            message.style.position = 'fixed';
-            message.style.top = '10px';
-            message.style.left = '0';
-            message.style.right = '0';
-            message.style.textAlign = 'center';
-            message.style.fontSize = '24px';
-            message.style.fontWeight = 'bold';
-            message.style.color = '#ff71ce';
-            message.style.textShadow = '0 0 10px #ff71ce';
-            message.style.zIndex = '9999';
-            message.innerText = 'SUPER PARENT MODE ACTIVATED!';
-            document.body.appendChild(message);
-            
-            // Remove effects after 5 seconds
-            setTimeout(() => {
-                document.body.classList.remove('konami-activated');
-                document.body.removeChild(message);
-                removeSparkles();
-            }, 5000);
+<script>
+    // Theme management
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme');
+        let newTheme;
+        
+        if (currentTheme === 'light') {
+            newTheme = 'dark';
+        } else if (currentTheme === 'dark') {
+            newTheme = null; // Use system preference
+        } else {
+            newTheme = 'light';
         }
-
-        function createSparkles() {
-            // Create 50 sparkle elements
-            for (let i = 0; i < 50; i++) {
-                createSparkle();
-            }
+        
+        if (newTheme) {
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        } else {
+            body.removeAttribute('data-theme');
+            localStorage.removeItem('theme');
         }
+        
+        updateThemeIcon();
+    }
 
-        function createSparkle() {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.innerHTML = '✨';
-            sparkle.style.fontSize = Math.random() * 20 + 10 + 'px';
-            sparkle.style.left = Math.random() * window.innerWidth + 'px';
-            sparkle.style.top = Math.random() * window.innerHeight + 'px';
-            sparkle.style.opacity = '0';
-            document.body.appendChild(sparkle);
+    function updateThemeIcon() {
+        const toggle = document.querySelector('.theme-toggle');
+        const currentTheme = document.body.getAttribute('data-theme');
+        
+        if (currentTheme === 'light') {
+            toggle.textContent = '🌙';
+        } else if (currentTheme === 'dark') {
+            toggle.textContent = '💻';
+        } else {
+            toggle.textContent = '☀️';
+        }
+    }
+
+    // Load saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+    }
+    updateThemeIcon();
+
+    // Repository loading
+    async function loadRepositories() {
+        try {
+            const response = await fetch('/repos.json');
+            const repos = await response.json();
             
-            // Animate the sparkle
-            setTimeout(() => {
-                sparkle.style.opacity = '1';
-                
-                // Move the sparkle randomly
-                const animation = sparkle.animate([
-                    { transform: 'translate(0, 0) rotate(0deg)', opacity: 1 },
-                    { transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-                ], {
-                    duration: Math.random() * 3000 + 2000,
-                    easing: 'cubic-bezier(0.1, 0.8, 0.2, 1)'
-                });
-                
-                animation.onfinish = () => {
-                    if (sparkle.parentNode) {
-                        document.body.removeChild(sparkle);
+            // Filter out forks and archived repos, sort by stars and recent activity
+            const filteredRepos = repos
+                .filter(repo => !repo.fork && !repo.isArchived)
+                .sort((a, b) => {
+                    // Sort by stars first, then by updated date
+                    if (b.stargazerCount !== a.stargazerCount) {
+                        return b.stargazerCount - a.stargazerCount;
                     }
-                };
-            }, Math.random() * 1000);
-        }
+                    return new Date(b.updatedAt) - new Date(a.updatedAt);
+                })
+                .slice(0, 6); // Show top 6 repos
 
-        function removeSparkles() {
-            const sparkles = document.querySelectorAll('.sparkle');
-            sparkles.forEach(sparkle => {
-                if (sparkle.parentNode) {
-                    document.body.removeChild(sparkle);
-                }
-            });
-        }
-
-        // Repositories section toggle
-        document.addEventListener('DOMContentLoaded', () => {
-            const reposToggle = document.querySelector('.repos-toggle');
-            const reposSection = document.querySelector('.repos-section');
-
-            reposToggle.addEventListener('click', () => {
-                reposSection.classList.toggle('active');
-                if (reposSection.classList.contains('active')) {
-                    reposToggle.textContent = 'Hide my projects 👀';
-                    fetchRepositories();
-                } else {
-                    reposToggle.textContent = 'Show my projects ✨';
-                }
-            });
-
-            // Language color mapping
-            const languageColors = {
-                "JavaScript": "#f1e05a",
-                "TypeScript": "#2b7489",
-                "HTML": "#e34c26",
-                "CSS": "#563d7c",
-                "Python": "#3572A5",
-                "Java": "#b07219",
-                "Ruby": "#701516",
-                "Go": "#00ADD8",
-                "C#": "#178600",
-                "PHP": "#4F5D95",
-                "C++": "#f34b7d",
-                "Shell": "#89e051",
-                "Swift": "#ffac45",
-                "Kotlin": "#F18E33",
-                "Rust": "#dea584"
-            };
-
-            // Function to fetch repositories from the JSON file
-            function fetchRepositories() {
-                const reposContainer = document.getElementById('repos-container');
-                
-                // Check if we've already loaded the repos
-                if (reposContainer.querySelector('.repo-list')) {
-                    return;
-                }
-
-                // Display loading spinner
-                reposContainer.innerHTML = '<div class="loading"></div>';
-                
-                // Fetch the repositories from the generated JSON file
-                fetch('/repos.json')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Failed to fetch repositories');
-                        }
-                        return response.json();
-                    })
-                    .then(repos => {
-                        displayRepositories(repos);
-                    })
-                    .catch(error => {
-                        console.error('Error fetching repositories:', error);
-                        reposContainer.innerHTML = `
-                            <p style="text-align: center; color: #ff71ce;">
-                                ✨ Repositories will appear here once the GitHub Action runs! ✨
-                            </p>
-                        `;
-                    });
+            const container = document.getElementById('repos-container');
+            
+            if (filteredRepos.length === 0) {
+                container.innerHTML = '<div class="loading">No repositories found.</div>';
+                return;
             }
 
-            // Function to display repositories
-            function displayRepositories(repos) {
-                const reposContainer = document.getElementById('repos-container');
-                
-                // Sort repos by last updated date (latest first)
-                repos.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
-                
-                const repoList = document.createElement('div');
-                repoList.className = 'repo-list';
-                
-                repos.forEach(repo => {
-                    // Skip forked repositories if you want
-                    // if (repo.fork) return;
-                    
-                    const repoCard = document.createElement('div');
-                    repoCard.className = 'repo-card';
-                    
-                    // Format the updated date
-                    const updatedDate = new Date(repo.updatedAt);
-                    const formattedDate = updatedDate.toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric'
-                    });
-                    
-                    // Get language color
-                    const languageColor = languageColors[repo.language] || '#ccc';
-                    
-                    repoCard.innerHTML = `
-                        <div class="repo-name">${repo.name}</div>
-                        <div class="repo-description">${repo.description || 'No description available'}</div>
-                        ${repo.language ? `
-                            <div class="repo-language">
-                                <span class="language-color" style="background-color: ${languageColor}"></span>
-                                ${repo.language}
-                            </div>
-                        ` : ''}
-                        <div class="repo-meta">
-                            <span>Updated: ${formattedDate}</span>
-                            <span>⭐ ${repo.stargazerCount}</span>
-                        </div>
-                        <a href="${repo.url}" class="repo-link" target="_blank">View on GitHub →</a>
-                    `;
-                    
-                    repoList.appendChild(repoCard);
+            const reposGrid = document.createElement('div');
+            reposGrid.className = 'repos-grid';
+
+            filteredRepos.forEach(repo => {
+                const repoCard = document.createElement('a');
+                repoCard.className = 'repo-card';
+                repoCard.href = repo.url;
+                repoCard.target = '_blank';
+                repoCard.rel = 'noopener noreferrer';
+
+                const updatedDate = new Date(repo.updatedAt).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric'
                 });
-                
-                reposContainer.innerHTML = '';
-                reposContainer.appendChild(repoList);
-            }
-        });
-    </script>
+
+                repoCard.innerHTML = `
+                    <div class="repo-header">
+                        <h3 class="repo-name">${repo.name}</h3>
+                        ${repo.language ? `<span class="repo-language">${repo.language}</span>` : ''}
+                    </div>
+                    ${repo.description ? `<p class="repo-description">${repo.description}</p>` : ''}
+                    <div class="repo-stats">
+                        <span class="repo-stat">
+                            <i class="fas fa-star"></i>
+                            ${repo.stargazerCount}
+                        </span>
+                        <span class="repo-stat">
+                            <i class="fas fa-code-branch"></i>
+                            ${repo.forkCount}
+                        </span>
+                        <span class="repo-stat">
+                            <i class="fas fa-clock"></i>
+                            ${updatedDate}
+                        </span>
+                    </div>
+                `;
+
+                reposGrid.appendChild(repoCard);
+            });
+
+            container.innerHTML = '';
+            container.appendChild(reposGrid);
+        } catch (error) {
+            console.error('Error loading repositories:', error);
+            document.getElementById('repos-container').innerHTML = 
+                '<div class="loading">Could not fetch repositories. More coffee first?</div>';
+        }
+    }
+
+    // Load repositories when page loads
+    document.addEventListener('DOMContentLoaded', loadRepositories);
+</script>
+```
+
 </body>
 </html>
