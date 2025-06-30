@@ -5,16 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>raisingpixels</title>
+    <!-- Theme colors for Safari -->
+    <meta name="theme-color" content="#e17055" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#2d3436" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#e17055">
+
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-```
     :root {
         /* Light mode colors from profile */
         --bg-gradient: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 25%, #e17055 50%, #a29bfe 75%, #6c5ce7 100%);
@@ -358,13 +362,11 @@
         }
     }
 </style>
-```
 
 </head>
 <body>
     <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-```
 <div class="container">
     <section class="hero-section">
         <div class="card">
