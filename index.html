@@ -1,561 +1,489 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>raisingpixels</title>
-    <!-- Theme colors for Safari -->
-    <meta name="theme-color" content="#e17055" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#2d3436" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#e17055">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>raisingpixels</title>
+        <!-- Theme colors for Safari -->
+        <meta name="theme-color" content="#e17055" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="#2d3436" media="(prefers-color-scheme: dark)">
+        <meta name="theme-color" content="#e17055">
 
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    :root {
-        /* Light mode colors from profile */
-        --bg-gradient: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 25%, #e17055 50%, #a29bfe 75%, #6c5ce7 100%);
-        --bg-solid: #fdf2f8;
-        --text-primary: #2d3436;
-        --text-secondary: #636e72;
-        --card-bg: rgba(255, 255, 255, 0.9);
-        --card-border: rgba(255, 255, 255, 0.3);
-        --link-color: #6c5ce7;
-        --accent: #e17055;
-        --repo-card-bg: rgba(255, 255, 255, 0.8);
-    }
-
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --bg-gradient: linear-gradient(135deg, #2d3436 0%, #636e72 25%, #74b9ff 50%, #a29bfe 75%, #6c5ce7 100%);
-            --bg-solid: #2d3436;
-            --text-primary: #ddd6fe;
-            --text-secondary: #c7d2fe;
-            --card-bg: rgba(45, 52, 54, 0.8);
-            --card-border: rgba(255, 255, 255, 0.1);
-            --link-color: #a29bfe;
-            --accent: #fab1a0;
-            --repo-card-bg: rgba(45, 52, 54, 0.7);
-        }
-    }
-
-    [data-theme="light"] {
-        --bg-gradient: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 25%, #e17055 50%, #a29bfe 75%, #6c5ce7 100%);
-        --bg-solid: #fdf2f8;
-        --text-primary: #2d3436;
-        --text-secondary: #636e72;
-        --card-bg: rgba(255, 255, 255, 0.9);
-        --card-border: rgba(255, 255, 255, 0.3);
-        --link-color: #6c5ce7;
-        --accent: #e17055;
-        --repo-card-bg: rgba(255, 255, 255, 0.8);
-    }
-
-    [data-theme="dark"] {
-        --bg-gradient: linear-gradient(135deg, #2d3436 0%, #636e72 25%, #74b9ff 50%, #a29bfe 75%, #6c5ce7 100%);
-        --bg-solid: #2d3436;
-        --text-primary: #ddd6fe;
-        --text-secondary: #c7d2fe;
-        --card-bg: rgba(45, 52, 54, 0.8);
-        --card-border: rgba(255, 255, 255, 0.1);
-        --link-color: #a29bfe;
-        --accent: #fab1a0;
-        --repo-card-bg: rgba(45, 52, 54, 0.7);
-    }
-
-    body {
-        font-family: 'Crimson Text', serif;
-        background: var(--bg-gradient);
-        min-height: 100vh;
-        color: var(--text-primary);
-        transition: all 0.3s ease;
-    }
-
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem 1rem;
-    }
-
-    .hero-section {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        padding-bottom: 2rem;
-    }
-
-    .card {
-        background: var(--card-bg);
-        backdrop-filter: blur(20px);
-        border: 1px solid var(--card-border);
-        border-radius: 24px;
-        padding: 2rem;
-        text-align: center;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        width: 100%;
-        max-width: 320px;
-    }
-
-    .card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    }
-
-    .profile-image {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        margin: 0 auto 1.5rem;
-        border: 3px solid var(--accent);
-        object-fit: cover;
-        transition: all 0.3s ease;
-    }
-
-    .profile-image:hover {
-        transform: scale(1.05);
-        border-color: var(--link-color);
-    }
-
-    .username {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 1.5rem;
-        font-weight: 500;
-        margin-bottom: 0.5rem;
-        color: var(--text-primary);
-        letter-spacing: -0.02em;
-    }
-
-    .tagline {
-        font-size: 1rem;
-        color: var(--text-secondary);
-        margin-bottom: 2rem;
-        line-height: 1.4;
-    }
-
-    .social-links {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .social-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 48px;
-        height: 48px;
-        background: var(--link-color);
-        color: white;
-        text-decoration: none;
-        border-radius: 50%;
-        font-size: 1.2rem;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-    }
-
-    .social-icon:hover {
-        background: transparent;
-        color: var(--link-color);
-        border-color: var(--link-color);
-        transform: translateY(-2px);
-    }
-
-    .theme-toggle {
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        background: var(--card-bg);
-        border: 1px solid var(--card-border);
-        border-radius: 50%;
-        width: 48px;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        font-size: 1.2rem;
-        backdrop-filter: blur(20px);
-        transition: all 0.3s ease;
-        color: var(--text-primary);
-    }
-
-    .theme-toggle:hover {
-        transform: scale(1.1);
-    }
-
-    .pixel-accent {
-        font-family: 'JetBrains Mono', monospace;
-        color: var(--accent);
-    }
-
-    .repos-section {
-        padding: 2rem 0;
-    }
-
-    .section-title {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 1.8rem;
-        text-align: center;
-        margin-bottom: 2rem;
-        color: var(--text-primary);
-    }
-
-    .repos-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    .repo-card {
-        background: var(--repo-card-bg);
-        backdrop-filter: blur(20px);
-        border: 1px solid var(--card-border);
-        border-radius: 16px;
-        padding: 1.5rem;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .repo-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    }
-
-    .repo-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 0.75rem;
-    }
-
-    .repo-name {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 1.1rem;
-        font-weight: 500;
-        color: var(--link-color);
-        margin: 0;
-    }
-
-    .repo-language {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-        background: var(--accent);
-        color: white;
-        padding: 0.25rem 0.5rem;
-        border-radius: 12px;
-        opacity: 0.8;
-    }
-
-    .repo-description {
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-        margin-bottom: 1rem;
-        line-height: 1.4;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .repo-stats {
-        display: flex;
-        gap: 1rem;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-        color: var(--text-secondary);
-    }
-
-    .repo-stat {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-    }
-
-    .loading {
-        text-align: center;
-        color: var(--text-secondary);
-        font-style: italic;
-    }
-
-    .coffee-section {
-        padding: 3rem 0;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .coffee-button {
-        background: var(--accent);
-        color: white;
-        border: none;
-        padding: 1rem 2rem;
-        border-radius: 50px;
-        font-family: 'Crimson Text', serif;
-        font-size: 1.1rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .coffee-button:hover {
-        background: var(--link-color);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    .coffee-button:active {
-        transform: translateY(0);
-    }
-
-    .floating-coffee {
-        position: absolute;
-        font-size: 1.5rem;
-        pointer-events: none;
-        animation: floatUp 2s ease-out forwards;
-    }
-
-    @keyframes floatUp {
-        0% {
-            transform: translateY(0) rotate(0deg);
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(-100px) rotate(360deg);
-            opacity: 0;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .container {
-            padding: 1rem;
-        }
-        
-        .card {
-            padding: 1.5rem;
-        }
-        
-        .username {
-            font-size: 1.3rem;
-        }
-        
-        .repos-grid {
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-        }
-    }
-</style>
-
-</head>
-<body>
-    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-
-<div class="container">
-    <section class="hero-section">
-        <div class="card">
-            <img src="/profile.jpg" alt="Profile" class="profile-image">
-            
-            <h1 class="username">raising<span class="pixel-accent">pixels</span></h1>
-            <p class="tagline">Pixels, parenting, and coffee break code</p>
-            
-            <div class="social-links">
-                <a href="https://github.com/raisingpixels" class="social-icon" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://x.com/raisingpixels" class="social-icon" title="X">
-                    𝕏
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="repos-section">
-        <h2 class="section-title">Recent Projects</h2>
-        <div id="repos-container">
-            <div class="loading">Loading repositories...</div>
-        </div>
-    </section>
-
-    <section class="coffee-section">
-        <button class="coffee-button" onclick="spawnCoffee(event)">
-            ☕ click for coffee
-        </button>
-    </section>
-</div>
-
-<script>
-    // Theme management
-    function toggleTheme() {
-        const body = document.body;
-        const currentTheme = body.getAttribute('data-theme');
-        let newTheme;
-        
-        if (currentTheme === 'light') {
-            newTheme = 'dark';
-        } else if (currentTheme === 'dark') {
-            newTheme = null; // Use system preference
-        } else {
-            newTheme = 'light';
-        }
-        
-        if (newTheme) {
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        } else {
-            body.removeAttribute('data-theme');
-            localStorage.removeItem('theme');
-        }
-        
-        updateThemeIcon();
-    }
-
-    function updateThemeIcon() {
-        const toggle = document.querySelector('.theme-toggle');
-        const currentTheme = document.body.getAttribute('data-theme');
-        
-        if (currentTheme === 'light') {
-            toggle.textContent = '🌙';
-        } else if (currentTheme === 'dark') {
-            toggle.textContent = '💻';
-        } else {
-            toggle.textContent = '☀️';
-        }
-    }
-
-    // Load saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        document.body.setAttribute('data-theme', savedTheme);
-    }
-    updateThemeIcon();
-
-    // Repository loading
-    async function loadRepositories() {
-        try {
-            const response = await fetch('/repos.json');
-            const repos = await response.json();
-            
-            // Filter out forks and archived repos, sort by stars and recent activity
-            const filteredRepos = repos
-                .filter(repo => !repo.fork && !repo.isArchived)
-                .sort((a, b) => {
-                    // Sort by stars first, then by updated date
-                    if (b.stargazerCount !== a.stargazerCount) {
-                        return b.stargazerCount - a.stargazerCount;
-                    }
-                    return new Date(b.updatedAt) - new Date(a.updatedAt);
-                })
-                .slice(0, 6); // Show top 6 repos
-
-            const container = document.getElementById('repos-container');
-            
-            if (filteredRepos.length === 0) {
-                container.innerHTML = '<div class="loading">No repositories found.</div>';
-                return;
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
 
-            const reposGrid = document.createElement('div');
-            reposGrid.className = 'repos-grid';
+            :root {
+                /* Light mode colors */
+                --bg-gradient: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 25%, #e17055 50%, #a29bfe 75%, #6c5ce7 100%);
+                --bg-solid: #fdf2f8;
+                --text-primary: #2d3436;
+                --text-secondary: #636e72;
+                --card-bg: rgba(255, 255, 255, 0.9);
+                --card-border: rgba(255, 255, 255, 0.3);
+                --link-color: #6c5ce7;
+                --accent: #e17055;
+                --repo-card-bg: rgba(255, 255, 255, 0.8);
+            }
 
-            filteredRepos.forEach(repo => {
-                const repoCard = document.createElement('a');
-                repoCard.className = 'repo-card';
-                repoCard.href = repo.url;
-                repoCard.target = '_blank';
-                repoCard.rel = 'noopener noreferrer';
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --bg-gradient: linear-gradient(135deg, #2d3436 0%, #636e72 25%, #74b9ff 50%, #a29bfe 75%, #6c5ce7 100%);
+                    --bg-solid: #2d3436;
+                    --text-primary: #ddd6fe;
+                    --text-secondary: #c7d2fe;
+                    --card-bg: rgba(45, 52, 54, 0.8);
+                    --card-border: rgba(255, 255, 255, 0.1);
+                    --link-color: #a29bfe;
+                    --accent: #fab1a0;
+                    --repo-card-bg: rgba(45, 52, 54, 0.7);
+                }
+            }
+            
+            body {
+                font-family: 'Crimson Text', serif;
+                background: var(--bg-gradient);
+                min-height: 100vh;
+                color: var(--text-primary);
+                transition: all 0.3s ease;
+            }
 
-                const updatedDate = new Date(repo.updatedAt).toLocaleDateString('en-US', {
-                    month: 'short',
-                    day: 'numeric',
-                    year: 'numeric'
-                });
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 2rem 1rem;
+            }
 
-                repoCard.innerHTML = `
-                    <div class="repo-header">
-                        <h3 class="repo-name">${repo.name}</h3>
-                        ${repo.language ? `<span class="repo-language">${repo.language}</span>` : ''}
+            .hero-section {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                padding-bottom: 2rem;
+            }
+
+            .card {
+                background: var(--card-bg);
+                backdrop-filter: blur(20px);
+                border: 1px solid var(--card-border);
+                border-radius: 24px;
+                padding: 2rem;
+                text-align: center;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                margin: 0 auto 1.5rem;
+                border: 3px solid var(--accent);
+                object-fit: cover;
+                transition: all 0.3s ease;
+            }
+
+            .profile-image:hover {
+                transform: scale(1.05);
+                border-color: var(--link-color);
+            }
+
+            .username {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 1.5rem;
+                font-weight: 500;
+                margin-bottom: 0.5rem;
+                color: var(--text-primary);
+                letter-spacing: -0.02em;
+            }
+
+            .tagline {
+                font-size: 1rem;
+                color: var(--text-secondary);
+                margin-bottom: 2rem;
+                line-height: 1.4;
+            }
+
+            .social-links {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .social-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 48px;
+                height: 48px;
+                background: var(--link-color);
+                color: white;
+                text-decoration: none;
+                border-radius: 50%;
+                font-size: 1.2rem;
+                transition: all 0.3s ease;
+                border: 2px solid transparent;
+            }
+
+            .social-icon:hover {
+                background: transparent;
+                color: var(--link-color);
+                border-color: var(--link-color);
+                transform: translateY(-2px);
+            }
+
+            .theme-toggle {
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                background: var(--card-bg);
+                border: 1px solid var(--card-border);
+                border-radius: 50%;
+                width: 48px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-size: 1.2rem;
+                backdrop-filter: blur(20px);
+                transition: all 0.3s ease;
+                color: var(--text-primary);
+            }
+
+            .theme-toggle:hover {
+                transform: scale(1.1);
+            }
+
+            .pixel-accent {
+                font-family: 'JetBrains Mono', monospace;
+                color: var(--accent);
+            }
+
+            .repos-section {
+                padding: 2rem 0;
+            }
+
+            .section-title {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 1.8rem;
+                text-align: center;
+                margin-bottom: 2rem;
+                color: var(--text-primary);
+            }
+
+            .repos-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .repo-card {
+                background: var(--repo-card-bg);
+                backdrop-filter: blur(20px);
+                border: 1px solid var(--card-border);
+                border-radius: 16px;
+                padding: 1.5rem;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .repo-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            }
+
+            .repo-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 0.75rem;
+            }
+
+            .repo-name {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: var(--link-color);
+                margin: 0;
+            }
+
+            .repo-language {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.8rem;
+                background: var(--accent);
+                color: white;
+                padding: 0.25rem 0.5rem;
+                border-radius: 12px;
+                opacity: 0.8;
+            }
+
+            .repo-description {
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+                margin-bottom: 1rem;
+                line-height: 1.4;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .repo-stats {
+                display: flex;
+                gap: 1rem;
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.8rem;
+                color: var(--text-secondary);
+            }
+
+            .repo-stat {
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+            }
+
+            .loading {
+                text-align: center;
+                color: var(--text-secondary);
+                font-style: italic;
+            }
+
+            .coffee-section {
+                padding: 3rem 0;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .coffee-button {
+                background: var(--accent);
+                color: var(--text-primary);
+                border: none;
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                font-family: 'Crimson Text', serif;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .coffee-button:hover {
+                background: var(--link-color);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            }
+
+            .coffee-button:active {
+                transform: translateY(0);
+            }
+
+            .floating-coffee {
+                position: absolute;
+                font-size: 1.5rem;
+                pointer-events: none;
+                animation: floatUp 2s ease-out forwards;
+            }
+
+            @keyframes floatUp {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .container {
+                    padding: 1rem;
+                }
+                
+                .card {
+                    padding: 1.5rem;
+                }
+                
+                .username {
+                    font-size: 1.3rem;
+                }
+                
+                .repos-grid {
+                    grid-template-columns: 1fr;
+                    gap: 1rem;
+                }
+
+                .section-title {
+                    font-size: 1.5rem;
+                }
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="container">
+            <section class="hero-section">
+                <div class="card">
+                    <img src="/profile.jpg" alt="Profile" class="profile-image">
+                    
+                    <h1 class="username">raising<span class="pixel-accent">pixels</span></h1>
+                    <p class="tagline">Pixels, parenting, and coffee break code</p>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/raisingpixels" class="social-icon" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://x.com/raisingpixels" class="social-icon" title="X">
+                            𝕏
+                        </a>
                     </div>
-                    ${repo.description ? `<p class="repo-description">${repo.description}</p>` : ''}
-                    <div class="repo-stats">
-                        <span class="repo-stat">
-                            <i class="fas fa-star"></i>
-                            ${repo.stargazerCount}
-                        </span>
-                        <span class="repo-stat">
-                            <i class="fas fa-code-branch"></i>
-                            ${repo.forkCount}
-                        </span>
-                        <span class="repo-stat">
-                            <i class="fas fa-clock"></i>
-                            ${updatedDate}
-                        </span>
-                    </div>
-                `;
+                </div>
+            </section>
 
-                reposGrid.appendChild(repoCard);
-            });
+            <section class="repos-section">
+                <h2 class="section-title">Recent Projects</h2>
+                <div id="repos-container">
+                    <div class="loading">Loading repositories...</div>
+                </div>
+            </section>
 
-            container.innerHTML = '';
-            container.appendChild(reposGrid);
-        } catch (error) {
-            console.error('Error loading repositories:', error);
-            document.getElementById('repos-container').innerHTML = 
-                '<div class="loading">Could not fetch repositories. More coffee first?</div>';
-        }
-    }
+            <section class="coffee-section">
+                <button class="coffee-button" onclick="spawnCoffee(event)">
+                    ☕ click for coffee
+                </button>
+            </section>
+        </div>
 
-    // Load repositories when page loads
-    document.addEventListener('DOMContentLoaded', loadRepositories);
+        <script>
+            // Repository loading
+            async function loadRepositories() {
+                try {
+                    const response = await fetch('/repos.json');
+                    const repos = await response.json();
+                    
+                    // Filter out forks and archived repos, sort by stars and recent activity
+                    const filteredRepos = repos
+                        .filter(repo => !repo.fork && !repo.isArchived)
+                        .sort((a, b) => {
+                            // Sort by stars first, then by updated date
+                            if (b.stargazerCount !== a.stargazerCount) {
+                                return b.stargazerCount - a.stargazerCount;
+                            }
+                            return new Date(b.updatedAt) - new Date(a.updatedAt);
+                        })
+                        .slice(0, 6); // Show top 6 repos
 
-    // Coffee button animation
-    function spawnCoffee(event) {
-        const button = event.target;
-        const coffeeEmojis = ['☕', '🍵', '🥤', '☕', '🍪', '☕'];
-        
-        // Create multiple coffee cups
-        for (let i = 0; i < 6; i++) {
-            setTimeout(() => {
-                const coffee = document.createElement('div');
-                coffee.className = 'floating-coffee';
-                coffee.textContent = coffeeEmojis[Math.floor(Math.random() * coffeeEmojis.length)];
-                
-                // Position relative to button
-                const rect = button.getBoundingClientRect();
-                const containerRect = button.parentElement.getBoundingClientRect();
-                
-                coffee.style.left = (rect.left - containerRect.left + Math.random() * rect.width) + 'px';
-                coffee.style.top = (rect.top - containerRect.top) + 'px';
-                
-                button.parentElement.appendChild(coffee);
-                
-                // Remove after animation
-                setTimeout(() => {
-                    if (coffee.parentElement) {
-                        coffee.parentElement.removeChild(coffee);
+                    const container = document.getElementById('repos-container');
+                    
+                    if (filteredRepos.length === 0) {
+                        container.innerHTML = '<div class="loading">No repositories found.</div>';
+                        return;
                     }
-                }, 2000);
-            }, i * 150); // Stagger the animations
-        }
-    }
-</script>
-```
 
-</body>
+                    const reposGrid = document.createElement('div');
+                    reposGrid.className = 'repos-grid';
+
+                    filteredRepos.forEach(repo => {
+                        const repoCard = document.createElement('a');
+                        repoCard.className = 'repo-card';
+                        repoCard.href = repo.url;
+                        repoCard.target = '_blank';
+                        repoCard.rel = 'noopener noreferrer';
+
+                        const updatedDate = new Date(repo.updatedAt).toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric'
+                        });
+
+                        repoCard.innerHTML = `
+                            <div class="repo-header">
+                                <h3 class="repo-name">${repo.name}</h3>
+                                ${repo.language ? `<span class="repo-language">${repo.language}</span>` : ''}
+                            </div>
+                            ${repo.description ? `<p class="repo-description">${repo.description}</p>` : ''}
+                            <div class="repo-stats">
+                                <span class="repo-stat">
+                                    <i class="fas fa-star"></i>
+                                    ${repo.stargazerCount}
+                                </span>
+                                <span class="repo-stat">
+                                    <i class="fas fa-code-branch"></i>
+                                    ${repo.forkCount}
+                                </span>
+                                <span class="repo-stat">
+                                    <i class="fas fa-clock"></i>
+                                    ${updatedDate}
+                                </span>
+                            </div>
+                        `;
+
+                        reposGrid.appendChild(repoCard);
+                    });
+
+                    container.innerHTML = '';
+                    container.appendChild(reposGrid);
+                } catch (error) {
+                    console.error('Error loading repositories:', error);
+                    document.getElementById('repos-container').innerHTML = 
+                        '<div class="loading">Could not fetch repositories. More coffee first?</div>';
+                }
+            }
+
+            // Load repositories when page loads
+            document.addEventListener('DOMContentLoaded', loadRepositories);
+
+            // Coffee button animation
+            function spawnCoffee(event) {
+                const button = event.target;
+                const coffeeEmojis = ['☕', '🍵', '🥤', '☕', '🍪', '☕'];
+                
+                // Create multiple coffee cups
+                for (let i = 0; i < 6; i++) {
+                    setTimeout(() => {
+                        const coffee = document.createElement('div');
+                        coffee.className = 'floating-coffee';
+                        coffee.textContent = coffeeEmojis[Math.floor(Math.random() * coffeeEmojis.length)];
+                        
+                        // Position relative to button
+                        const rect = button.getBoundingClientRect();
+                        const containerRect = button.parentElement.getBoundingClientRect();
+                        
+                        coffee.style.left = (rect.left - containerRect.left + Math.random() * rect.width) + 'px';
+                        coffee.style.top = (rect.top - containerRect.top) + 'px';
+                        
+                        button.parentElement.appendChild(coffee);
+                        
+                        // Remove after animation
+                        setTimeout(() => {
+                            if (coffee.parentElement) {
+                                coffee.parentElement.removeChild(coffee);
+                            }
+                        }, 2000);
+                    }, i * 150); // Stagger the animations
+                }
+            }
+        </script>
+
+    </body>
 </html>
