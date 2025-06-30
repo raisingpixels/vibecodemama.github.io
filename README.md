@@ -1,4 +1,4 @@
-# raisingpixels website 🌅
+# raisingpixels website
 
 ## ✨ About
 
