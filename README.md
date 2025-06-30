@@ -1,77 +1,124 @@
-# ✨ vibecodemama landing page ✨
+# raisingpixels website 🌅
 
+## ✨ About
+
+A minimal, aesthetic personal webpage. Built with a lofi/vaporwave aesthetic inspired by those golden hour coding sessions when the little one finally naps.
+
+## 🎨 Features
+
+- **Lofi Aesthetic**: Sunset gradient backgrounds with glassmorphism effects
+- **Responsive Design**: Looks great on all devices
+- **Smart Theme System**:
+  - Respects system preference by default
+  - Manual toggle: System → Light → Dark → System
+  - Uses CSS media queries for true responsiveness
+- **Auto-Updating Portfolio**: GitHub Action automatically fetches and displays latest repositories
+- **Clean Typography**: JetBrains Mono + Crimson Text pairing
+- **Minimal Social Links**: Icon-based GitHub and X/Twitter links
+
+## 🚀 Quick Start
+
+1. **Clone & Setup**
+   Click "Use this template" to grab a copy for yourself!
+
+2. **Add Your Profile Image**
+   ```bash
+   # Add your profile image as profile.jpg in the root directory
+   cp your-photo.jpg profile.jpg
+   ```
+   
+3. **Customize Content**
+   - Update social links in `index.html`
+   - Modify tagline and username styling
+   - Adjust color scheme in CSS variables
+
+4. **Deploy**
+   - Push to GitHub
+   - Enable GitHub Actions
+   - Deploy to GitHub Pages, Vercel, or your preferred host
+
+## ⚙️ GitHub Action
+
+The site automatically updates your repository showcase daily using a GitHub Action:
+
+- Runs daily at midnight UTC
+- Fetches your latest public repositories
+- Filters out forks and archived repos
+- Sorts by stars and recent activity
+- Shows top 6 repositories
+
+**Required Setup:**
+
+- No additional secrets needed (uses `GITHUB_TOKEN`)
+- Action runs automatically on push and daily
+- Can be triggered manually from Actions tab
+
+## 🎯 Customization
+
+### Color Scheme
+
+```css
+:root {
+  --bg-gradient: /* Your sunset gradient */
+  --text-primary: /* Main text color */
+  --link-color: /* Accent color */
+  --accent: /* Secondary accent */
+}
 ```
- ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
-||V |||i |||b |||e |||C |||o |||d |||e |||M |||a |||m |||a ||
-||__|||__|||__|||__|||__|||__|||__|||__|||__|||__|||__|||__||
-|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
-```
 
-## 🎸 About This Project
+### Repository Display
 
-This is a personal landing page with major vaporwave/synthwave vibes. The site features a rad animated gradient background, glowing elements, and minimalist content that gets right to the point.
+- Edit `loadRepositories()` function to change filtering logic
+- Modify `.slice(0, 6)` to show more/fewer repos
+- Adjust sorting criteria in the sort function
 
-## ✨ Features
+### Typography
 
-* Animated gradient background to mesmerize babies
-* Retro grid overlay reminiscent of the 80s when parents could let kids play outside unsupervised
-* Glowing profile image with pulse animation, like how my heart glows when my kid says "Good night!" (Because it's super cute and also now I can go play on the computer)
-* Social links to connect with other coding parents in the wild
+- Fonts: JetBrains Mono (code) + Crimson Text (body)
+- Easy to swap in CSS imports
 
 ## 🛠️ Tech Stack
 
-* HTML5
-* CSS3 (with animations that are more reliable than toddler nap schedules)
-* No JavaScript (because parents don't have time for that extra complexity)
+- **Vanilla HTML/CSS/JavaScript** - No frameworks, fast loading
+- **Font Awesome** - Social media icons
+- **Google Fonts** - Typography
+- **GitHub GraphQL API** - Repository data
+- **CSS Grid/Flexbox** - Responsive layouts
+- **CSS Variables** - Easy theming
 
-## 🚀 Installation
+## 📱 Browser Support
 
-1. Clone this repo
-```bash
-git clone https://github.com/vibecodemama/vibecodemama.github.io.git
-```
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Responsive design works on all screen sizes
+- Graceful fallbacks for older browsers
+- Progressive enhancement approach
 
-2. Open index.html in your browser of choice
-```bash
-cd landing-page
-open index.html  # For Mac
-# or
-start index.html  # For Windows
-```
+## 🌙 Theme System Details
 
-3. Marvel at the colors while your kids ask what you're doing
+The theme system is designed to be respectful and smart:
 
-## 💖 Contributing
+1. **Default**: Respects user’s system preference (`prefers-color-scheme`)
+2. **Light Override**: Force light mode regardless of system
+3. **Dark Override**: Force dark mode regardless of system
+4. **Back to System**: Removes override, returns to system preference
 
-Got ideas to make this landing page even more parent-coder friendly? Submit a PR!
+Icons indicate current state:
 
-**PR guidelines for Tired Parents:**
-* PRs should be submittable in under 10 minutes (average time between toddler emergencies)
-* Code should be readable at 3am when you finally get time to commit
-* Comments are appreciated (I'm sleep deprived too)
+- ☀️ = Following system preference
+- 🌙 = Light mode override
+- 💻 = Dark mode override
 
-## 🔮 Easter Eggs
+## 📄 License
 
-<details>
-<summary>Click to reveal secrets...</summary>
+MIT License - feel free to use as inspiration for your own site!
 
-* If you open dev tools and look at the CSS comments, you'll find a hidden haiku about debugging while parenting
-* Change the URL parameter to `?coffee=depleted` to see an alternative tired parent mode
-* Press the Konami code (↑↑↓↓←→←→BA) for a surprise sound that's guaranteed to wake up your finally-sleeping child
+-----
 
-</details>
-
-## 📝 License
-
-MIT License (aka the "Please Use This However You Want, I'm Too Busy To Care!" license)
-
-<div align="center">
-  <sub>Made with ❤️ and ☕ between toddler naps</sub>
-</div>
+*“raising pixels, one commit at a time”* ✨
 
 <!-- 
 Secret message for fellow parent coders:
 You're doing great. Your kids don't care if your code is perfect.
 They care that you're there and trying your best.
-This README took 3 interrupted coding sessions to write.
+Keep building!
 -->
