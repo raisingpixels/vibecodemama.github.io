@@ -286,6 +286,55 @@
         font-style: italic;
     }
 
+    .coffee-section {
+        padding: 3rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .coffee-button {
+        background: var(--accent);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-family: 'Crimson Text', serif;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .coffee-button:hover {
+        background: var(--link-color);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .coffee-button:active {
+        transform: translateY(0);
+    }
+
+    .floating-coffee {
+        position: absolute;
+        font-size: 1.5rem;
+        pointer-events: none;
+        animation: floatUp 2s ease-out forwards;
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
     @media (max-width: 480px) {
         .container {
             padding: 1rem;
@@ -322,14 +371,14 @@
             <img src="/profile.jpg" alt="Profile" class="profile-image">
             
             <h1 class="username">raising<span class="pixel-accent">pixels</span></h1>
-            <p class="tagline">AI-assisted coding between snacks and naps</p>
+            <p class="tagline">Pixels, parenting, and coffee break code</p>
             
             <div class="social-links">
                 <a href="https://github.com/raisingpixels" class="social-icon" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
                 <a href="https://x.com/raisingpixels" class="social-icon" title="X (Twitter)">
-                    <i class="fab fa-x-twitter"></i>
+                    <i class="fab fa-twitter"></i>
                 </a>
             </div>
         </div>
@@ -340,6 +389,12 @@
         <div id="repos-container">
             <div class="loading">Loading repositories...</div>
         </div>
+    </section>
+
+    <section class="coffee-section">
+        <button class="coffee-button" onclick="spawnCoffee(event)">
+            ☕ click for coffee
+        </button>
     </section>
 </div>
 
@@ -466,6 +521,37 @@
 
     // Load repositories when page loads
     document.addEventListener('DOMContentLoaded', loadRepositories);
+
+    // Coffee button animation
+    function spawnCoffee(event) {
+        const button = event.target;
+        const coffeeEmojis = ['☕', '🍵', '🥤', '☕', '🍪', '☕'];
+        
+        // Create multiple coffee cups
+        for (let i = 0; i < 6; i++) {
+            setTimeout(() => {
+                const coffee = document.createElement('div');
+                coffee.className = 'floating-coffee';
+                coffee.textContent = coffeeEmojis[Math.floor(Math.random() * coffeeEmojis.length)];
+                
+                // Position relative to button
+                const rect = button.getBoundingClientRect();
+                const containerRect = button.parentElement.getBoundingClientRect();
+                
+                coffee.style.left = (rect.left - containerRect.left + Math.random() * rect.width) + 'px';
+                coffee.style.top = (rect.top - containerRect.top) + 'px';
+                
+                button.parentElement.appendChild(coffee);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    if (coffee.parentElement) {
+                        coffee.parentElement.removeChild(coffee);
+                    }
+                }, 2000);
+            }, i * 150); // Stagger the animations
+        }
+    }
 </script>
 ```
 
