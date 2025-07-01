@@ -3,11 +3,23 @@
     "name": "raisingpixels.github.io",
     "description": "Personal website with lofi aesthetic, responsive design, and auto-updating GitHub repos.",
     "url": "https://github.com/raisingpixels/raisingpixels.github.io",
-    "updatedAt": "2025-07-01T22:18:07Z",
+    "updatedAt": "2025-07-01T22:30:19Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
     "isTemplate": true,
+    "language": "HTML",
+    "fork": false
+  },
+  {
+    "name": "nontoxicgoods",
+    "description": "Family-vetted goods. Avoid toxins, expect high-quality, and support Made in USA companies.",
+    "url": "https://github.com/raisingpixels/nontoxicgoods",
+    "updatedAt": "2025-07-01T22:29:25Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
     "language": "HTML",
     "fork": false
   },
@@ -69,18 +81,6 @@
     "isArchived": false,
     "isTemplate": false,
     "language": null,
-    "fork": false
-  },
-  {
-    "name": "nontoxicgoods",
-    "description": "Family-vetted goods. Avoid toxins, expect high-quality, and support Made in USA companies.",
-    "url": "https://github.com/raisingpixels/nontoxicgoods",
-    "updatedAt": "2025-06-30T17:37:41Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "HTML",
     "fork": false
   },
   {
