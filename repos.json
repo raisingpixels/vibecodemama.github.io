@@ -3,7 +3,7 @@
     "name": "raisingpixels.github.io",
     "description": "Personal website with lofi aesthetic, responsive design, and auto-updating GitHub repos.",
     "url": "https://github.com/raisingpixels/raisingpixels.github.io",
-    "updatedAt": "2025-06-30T18:03:46Z",
+    "updatedAt": "2025-07-01T22:18:07Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
@@ -12,10 +12,46 @@
     "fork": false
   },
   {
+    "name": "vintage-web",
+    "description": "Hugo theme for 1999.",
+    "url": "https://github.com/raisingpixels/vintage-web",
+    "updatedAt": "2025-07-01T18:34:15Z",
+    "stargazerCount": 1,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
+    "name": "hugoThemesSiteBuilder",
+    "description": "The source for https://themes.gohugo.io",
+    "url": "https://github.com/raisingpixels/hugoThemesSiteBuilder",
+    "updatedAt": "2025-07-01T16:11:54Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "Go",
+    "fork": true
+  },
+  {
+    "name": "shapes",
+    "description": "2D and 3D shapes that reveal their names and spin when you click them!",
+    "url": "https://github.com/raisingpixels/shapes",
+    "updatedAt": "2025-07-01T16:10:27Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
     "name": "toddler-activity-finder",
     "description": "100+ activities for toddlers! Filter by materials, benefits, time commitment, and messiness.",
     "url": "https://github.com/raisingpixels/toddler-activity-finder",
-    "updatedAt": "2025-06-30T17:41:02Z",
+    "updatedAt": "2025-07-01T16:10:04Z",
     "stargazerCount": 1,
     "forkCount": 0,
     "isArchived": false,
@@ -33,18 +69,6 @@
     "isArchived": false,
     "isTemplate": false,
     "language": null,
-    "fork": false
-  },
-  {
-    "name": "shapes",
-    "description": "2D and 3D shapes that reveal their names and spin when you click them!",
-    "url": "https://github.com/raisingpixels/shapes",
-    "updatedAt": "2025-06-30T17:37:52Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "HTML",
     "fork": false
   },
   {
@@ -94,30 +118,6 @@
     "isTemplate": false,
     "language": "HTML",
     "fork": false
-  },
-  {
-    "name": "vintage-web",
-    "description": "Hugo theme for 1999.",
-    "url": "https://github.com/raisingpixels/vintage-web",
-    "updatedAt": "2025-06-28T01:54:44Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "HTML",
-    "fork": false
-  },
-  {
-    "name": "hugoThemesSiteBuilder",
-    "description": "The source for https://themes.gohugo.io",
-    "url": "https://github.com/raisingpixels/hugoThemesSiteBuilder",
-    "updatedAt": "2025-06-27T19:19:56Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "Go",
-    "fork": true
   },
   {
     "name": "mamacarnivore.com",
