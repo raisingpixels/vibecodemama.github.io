@@ -3,7 +3,7 @@
     "name": "raisingpixels.github.io",
     "description": "Personal website with lofi aesthetic, responsive design, and auto-updating GitHub repos.",
     "url": "https://github.com/raisingpixels/raisingpixels.github.io",
-    "updatedAt": "2025-06-30T15:53:06Z",
+    "updatedAt": "2025-06-30T18:03:46Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
@@ -12,10 +12,82 @@
     "fork": false
   },
   {
+    "name": "toddler-activity-finder",
+    "description": "100+ activities for toddlers! Filter by materials, benefits, time commitment, and messiness.",
+    "url": "https://github.com/raisingpixels/toddler-activity-finder",
+    "updatedAt": "2025-06-30T17:41:02Z",
+    "stargazerCount": 1,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "JavaScript",
+    "fork": false
+  },
+  {
+    "name": "tdee",
+    "description": "Calculate your Total Daily Energy Expenditure.",
+    "url": "https://github.com/raisingpixels/tdee",
+    "updatedAt": "2025-06-30T17:40:49Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": null,
+    "fork": false
+  },
+  {
+    "name": "shapes",
+    "description": "2D and 3D shapes that reveal their names and spin when you click them!",
+    "url": "https://github.com/raisingpixels/shapes",
+    "updatedAt": "2025-06-30T17:37:52Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
+    "name": "nontoxicgoods",
+    "description": "Family-vetted goods. Avoid toxins, expect high-quality, and support Made in USA companies.",
+    "url": "https://github.com/raisingpixels/nontoxicgoods",
+    "updatedAt": "2025-06-30T17:37:41Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
+    "name": "hugo-theme-demo",
+    "description": "A comprehensive template repository for developing and testing Hugo themes with rich example content and development tools.",
+    "url": "https://github.com/raisingpixels/hugo-theme-demo",
+    "updatedAt": "2025-06-30T17:37:16Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "Shell",
+    "fork": false
+  },
+  {
+    "name": "carnivore-calculator",
+    "description": "A calculator to figure out how much meat to eat, as determined by your protein requirement.",
+    "url": "https://github.com/raisingpixels/carnivore-calculator",
+    "updatedAt": "2025-06-30T17:37:00Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
     "name": "hugo-theme-base",
     "description": "A full-featured unstyled base theme for Hugo static site generator. Ready to customize (see README for prompt ideas)!",
     "url": "https://github.com/raisingpixels/hugo-theme-base",
-    "updatedAt": "2025-06-29T02:51:26Z",
+    "updatedAt": "2025-06-30T17:36:32Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
@@ -48,18 +120,6 @@
     "fork": true
   },
   {
-    "name": "hugo-theme-demo",
-    "description": "A comprehensive template repository for developing and testing Hugo themes with rich example content and development tools.",
-    "url": "https://github.com/raisingpixels/hugo-theme-demo",
-    "updatedAt": "2025-06-24T19:30:21Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "Shell",
-    "fork": false
-  },
-  {
     "name": "mamacarnivore.com",
     "description": "Simple personal project showcase that auto-builds with screenshots.",
     "url": "https://github.com/raisingpixels/mamacarnivore.com",
@@ -69,66 +129,6 @@
     "isArchived": false,
     "isTemplate": false,
     "language": "CSS",
-    "fork": false
-  },
-  {
-    "name": "carnivore-calculator",
-    "description": "A calculator to figure out how much meat to eat, as determined by your protein requirement.",
-    "url": "https://github.com/raisingpixels/carnivore-calculator",
-    "updatedAt": "2025-06-22T03:26:19Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "HTML",
-    "fork": false
-  },
-  {
-    "name": "tdee",
-    "description": "Calculate your Total Daily Energy Expenditure.",
-    "url": "https://github.com/raisingpixels/tdee",
-    "updatedAt": "2025-06-22T03:18:54Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": null,
-    "fork": false
-  },
-  {
-    "name": "nontoxicgoods",
-    "description": "Family-vetted goods. Avoid toxins, expect high-quality, and support Made in USA companies.",
-    "url": "https://github.com/raisingpixels/nontoxicgoods",
-    "updatedAt": "2025-06-21T23:55:10Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "HTML",
-    "fork": false
-  },
-  {
-    "name": "toddler-activity-finder",
-    "description": "100+ activities for toddlers! Filter by materials, benefits, time commitment, and messiness.",
-    "url": "https://github.com/raisingpixels/toddler-activity-finder",
-    "updatedAt": "2025-05-12T09:27:47Z",
-    "stargazerCount": 1,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "JavaScript",
-    "fork": false
-  },
-  {
-    "name": "shapes",
-    "description": "2D and 3D shapes that reveal their names and spin when you click them!",
-    "url": "https://github.com/raisingpixels/shapes",
-    "updatedAt": "2025-04-06T18:25:27Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "HTML",
     "fork": false
   }
 ]
