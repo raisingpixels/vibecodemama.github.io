@@ -1,9 +1,21 @@
 [
   {
+    "name": "vintage-web",
+    "description": "Hugo theme for 1999.",
+    "url": "https://github.com/raisingpixels/vintage-web",
+    "updatedAt": "2025-07-03T07:39:54Z",
+    "stargazerCount": 2,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "HTML",
+    "fork": false
+  },
+  {
     "name": "raisingpixels.github.io",
     "description": "Personal website with lofi aesthetic, responsive design, and auto-updating GitHub repos.",
     "url": "https://github.com/raisingpixels/raisingpixels.github.io",
-    "updatedAt": "2025-07-02T01:06:37Z",
+    "updatedAt": "2025-07-03T01:06:13Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
@@ -17,18 +29,6 @@
     "url": "https://github.com/raisingpixels/nontoxicgoods",
     "updatedAt": "2025-07-01T22:29:25Z",
     "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "HTML",
-    "fork": false
-  },
-  {
-    "name": "vintage-web",
-    "description": "Hugo theme for 1999.",
-    "url": "https://github.com/raisingpixels/vintage-web",
-    "updatedAt": "2025-07-01T18:34:15Z",
-    "stargazerCount": 1,
     "forkCount": 0,
     "isArchived": false,
     "isTemplate": false,
