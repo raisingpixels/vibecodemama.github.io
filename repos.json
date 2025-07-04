@@ -1,9 +1,33 @@
 [
   {
-    "name": "vintage-web",
+    "name": "raisingpixels.github.io",
+    "description": "Personal website with lofi aesthetic, responsive design, and auto-updating GitHub repos.",
+    "url": "https://github.com/raisingpixels/raisingpixels.github.io",
+    "updatedAt": "2025-07-04T02:31:12Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": true,
+    "language": "HTML",
+    "fork": false
+  },
+  {
+    "name": "loficode-hugo-theme",
+    "description": "A cozy, lo-fi inspired Hugo theme. Features ambient sound player, dark/light themes, and a retro aesthetic with modern functionality.",
+    "url": "https://github.com/raisingpixels/loficode-hugo-theme",
+    "updatedAt": "2025-07-04T02:27:01Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "CSS",
+    "fork": false
+  },
+  {
+    "name": "vintage-web-hugo-theme",
     "description": "Hugo theme for 1999.",
-    "url": "https://github.com/raisingpixels/vintage-web",
-    "updatedAt": "2025-07-03T07:39:54Z",
+    "url": "https://github.com/raisingpixels/vintage-web-hugo-theme",
+    "updatedAt": "2025-07-04T02:14:44Z",
     "stargazerCount": 2,
     "forkCount": 0,
     "isArchived": false,
@@ -12,15 +36,15 @@
     "fork": false
   },
   {
-    "name": "raisingpixels.github.io",
-    "description": "Personal website with lofi aesthetic, responsive design, and auto-updating GitHub repos.",
-    "url": "https://github.com/raisingpixels/raisingpixels.github.io",
-    "updatedAt": "2025-07-03T01:06:13Z",
+    "name": "hugo-theme-dev-template",
+    "description": "A comprehensive template repository for developing and testing Hugo themes with rich example content and development tools.",
+    "url": "https://github.com/raisingpixels/hugo-theme-dev-template",
+    "updatedAt": "2025-07-04T01:44:34Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
-    "isTemplate": true,
-    "language": "HTML",
+    "isTemplate": false,
+    "language": "Shell",
     "fork": false
   },
   {
@@ -81,18 +105,6 @@
     "isArchived": false,
     "isTemplate": false,
     "language": null,
-    "fork": false
-  },
-  {
-    "name": "hugo-theme-demo",
-    "description": "A comprehensive template repository for developing and testing Hugo themes with rich example content and development tools.",
-    "url": "https://github.com/raisingpixels/hugo-theme-demo",
-    "updatedAt": "2025-06-30T17:37:16Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "Shell",
     "fork": false
   },
   {
