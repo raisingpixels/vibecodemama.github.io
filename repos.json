@@ -1,9 +1,21 @@
 [
   {
+    "name": "hugoThemesSiteBuilder",
+    "description": "The source for https://themes.gohugo.io",
+    "url": "https://github.com/raisingpixels/hugoThemesSiteBuilder",
+    "updatedAt": "2025-07-04T02:32:01Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "Go",
+    "fork": true
+  },
+  {
     "name": "raisingpixels.github.io",
     "description": "Personal website with lofi aesthetic, responsive design, and auto-updating GitHub repos.",
     "url": "https://github.com/raisingpixels/raisingpixels.github.io",
-    "updatedAt": "2025-07-04T02:31:12Z",
+    "updatedAt": "2025-07-04T02:31:22Z",
     "stargazerCount": 0,
     "forkCount": 0,
     "isArchived": false,
@@ -58,18 +70,6 @@
     "isTemplate": false,
     "language": "HTML",
     "fork": false
-  },
-  {
-    "name": "hugoThemesSiteBuilder",
-    "description": "The source for https://themes.gohugo.io",
-    "url": "https://github.com/raisingpixels/hugoThemesSiteBuilder",
-    "updatedAt": "2025-07-01T16:11:54Z",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": false,
-    "language": "Go",
-    "fork": true
   },
   {
     "name": "shapes",
