@@ -1,7 +1,7 @@
 ---
 title: "Coding with Constant Interruptions: A Parent's Survival Guide"
 date: "2025-07-04T21:16:50-05:00"
-draft: true
+draft: false
 subtitle: ""
 description: "Traditional productivity advice doesn’t work when you code in 12-minute windows between diaper changes and playtime. Here’s what actually does."
 categories: ["Parenting with Systems", "Developer Productivity"]
