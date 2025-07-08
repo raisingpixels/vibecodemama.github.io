@@ -33,6 +33,8 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+    extensions:
+      typographer: false
   tableOfContents:
     startLevel: 2
     endLevel: 2
