@@ -1,7 +1,6 @@
 baseURL: 'https://raisingpixels.dev'
 languageCode: 'en-us'
 title: 'raisingpixels.dev'
-theme: ''
 
 params:
   author:
