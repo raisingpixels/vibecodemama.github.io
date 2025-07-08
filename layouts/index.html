@@ -1,0 +1,34 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="container">
+    <img
+      src="{{ .Site.Params.Author.image | absURL }}"
+      alt="{{ .Site.Params.Author.name }}"
+      class="profile-image"
+    />
+    <h1>
+      <span class="raising-text">raising</span
+      ><span class="pixels-text">pixels</span> ✨
+    </h1>
+    <p class="subtitle">{{ .Site.Params.description }}</p>
+  </div>
+</section>
+
+<div class="container">
+    <section id="blog" class="section">
+        <h2>Recent Posts</h2>
+        {{ partial "components/blog-posts.html" . }}
+    </section>
+    <section id="projects" class="section">
+    <h2>Recent Projects</h2>
+    {{ partial "components/projects-grid.html" . }}
+  </section>
+
+  <section id="about" class="about-section">
+    {{ with site.GetPage "/about" }}
+      <h2 class="pixels-text">{{ .Params.subtitle }}</h2>
+      {{ .Content }}
+    {{ end }}
+  </section>
+</div>
+{{ end }}

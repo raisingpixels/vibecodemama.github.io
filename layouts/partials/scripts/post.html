@@ -1,0 +1,150 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Reading progress bar
+    const progressBar = document.querySelector(".reading-progress-bar");
+    const postContent = document.querySelector(".post-body");
+
+    if (progressBar && postContent) {
+      function updateReadingProgress() {
+        const contentTop = postContent.offsetTop;
+        const contentHeight = postContent.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        const startReading = contentTop - windowHeight / 3;
+        const finishReading = contentTop + contentHeight - windowHeight / 3;
+        const totalReadingDistance = finishReading - startReading;
+
+        if (scrollTop < startReading) {
+          progressBar.style.width = "0%";
+        } else if (scrollTop > finishReading) {
+          progressBar.style.width = "100%";
+        } else {
+          const progress = (scrollTop - startReading) / totalReadingDistance;
+          progressBar.style.width = progress * 100 + "%";
+        }
+      }
+
+      window.addEventListener("scroll", updateReadingProgress);
+      updateReadingProgress(); // Initial call
+    }
+
+    // Table of Contents active highlighting
+    const tocLinks = document.querySelectorAll(".toc a");
+    const headings = document.querySelectorAll(
+      ".post-body h2"
+    );
+
+    if (tocLinks.length > 0 && headings.length > 0) {
+      function updateActiveHeading() {
+        let activeHeading = null;
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        // Find the heading that's currently in view
+        for (let i = headings.length - 1; i >= 0; i--) {
+          const heading = headings[i];
+          if (heading.offsetTop - 100 <= scrollTop) {
+            activeHeading = heading;
+            break;
+          }
+        }
+
+        // Update TOC highlighting
+        tocLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (activeHeading) {
+            const href = link.getAttribute("href");
+            if (href === "#" + activeHeading.id) {
+              link.classList.add("active");
+            }
+          }
+        });
+      }
+
+      window.addEventListener("scroll", updateActiveHeading);
+      updateActiveHeading(); // Initial call
+    }
+
+    // Add IDs to headings for TOC linking (if not already present)
+    headings.forEach((heading) => {
+      if (!heading.id) {
+        const text = heading.textContent.trim();
+        const id = text
+          .toLowerCase()
+          .replace(/[^\w\s-]/g, "") // Remove special characters
+          .replace(/\s+/g, "-") // Replace spaces with hyphens
+          .replace(/-+/g, "-") // Replace multiple hyphens with single
+          .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
+        heading.id = id;
+      }
+    });
+    // Copy code functionality
+    function initializeCodeFences() {
+    const highlights = document.querySelectorAll(".highlight");
+
+    highlights.forEach((highlight) => {
+      // Extract language from class names
+      const pre = highlight.querySelector("pre");
+      const code = highlight.querySelector("code");
+
+      if (code) {
+        // Look for language class (e.g., language-html, language-javascript)
+        const classList = Array.from(code.classList);
+        const langClass = classList.find((cls) => cls.startsWith("language-"));
+
+        if (langClass) {
+          const lang = langClass.replace("language-", "");
+          highlight.setAttribute("data-lang", lang);
+        }
+      }
+
+      // Add copy functionality to markdown code fences
+      highlight.addEventListener("click", async (e) => {
+        // Check if click is on the copy button area (pseudo-element)
+        const rect = highlight.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const clickY = e.clientY - rect.top;
+
+        // Copy button is positioned at center-right of header (header is ~50px tall)
+        if (clickX > rect.width - 80 && clickY < 50) {
+          e.preventDefault();
+
+          const code = highlight.querySelector("code");
+          if (code) {
+            try {
+              // Extract clean code content without line numbers
+              let codeText = code.textContent;
+
+              // Remove line numbers if they exist
+              // Hugo often generates line numbers in various formats
+              codeText = codeText
+                // Remove numbered lines (e.g., "1 ", "2 ", etc. at start of lines)
+                .replace(/^\s*\d+\s+/gm, '')
+                // Remove line number spans or elements
+                .replace(/^\s*\d+\s*/gm, '')
+                // Clean up any extra whitespace
+                .trim();
+
+              await navigator.clipboard.writeText(codeText);
+
+              // Visual feedback - temporarily change the pseudo-element content
+              highlight.setAttribute("data-copied", "true");
+
+              setTimeout(() => {
+                highlight.removeAttribute("data-copied");
+              }, 2000);
+            } catch (err) {
+              console.log("Copy failed:", err);
+            }
+          }
+        }
+      });
+    });
+  }
+
+  // Initialize code fences when DOM is ready
+  initializeCodeFences();
+  });
+</script>

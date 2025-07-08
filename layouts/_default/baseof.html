@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+  <!-- Meta Description -->
+  {{ if .Description }}
+  <meta name="description" content="{{ .Description }}" />
+  {{ else if .IsHome }}
+  <meta name="description" content="{{ .Site.Params.description }}" />
+  {{ else }}
+  <meta name="description" content="{{ .Summary | truncate 160 }}" />
+  {{ end }}
+
+  <!-- Open Graph -->
+  <meta
+    property="og:title"
+    content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}"
+  />
+  <meta
+    property="og:description"
+    content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}"
+  />
+  <meta
+    property="og:type"
+    content="{{ if .IsPage }}article{{ else }}website{{ end }}"
+  />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  <meta property="og:site_name" content="{{ .Site.Title }}" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}"
+  />
+  <meta
+    name="twitter:description"
+    content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}"
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ "css/style.css" | absLangURL }}">
+
+  <!-- RSS -->
+  {{ range .AlternativeOutputFormats -}}
+  <link
+    rel="{{ .Rel }}"
+    type="{{ .MediaType.Type }}"
+    href="{{ .Permalink | safeURL }}"
+  />
+  {{ end -}}
+
+  <!-- Who's Looking? -->
+  <script defer data-domain="raisingpixels.dev" src="https://plausible.io/js/script.outbound-links.js"></script>
+</head>
+<body{{ if not .IsHome }} class="post-page"{{ end }}>
+    {{ partial "components/floating-pixels.html" . }}
+
+    {{ if not .IsHome }}
+        {{ partial "components/reading-progress.html" . }}
+    {{ end }}
+
+    {{ partial "components/header.html" . }}
+
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ if .IsHome }}
+        {{ partial "components/footer.html" . }}
+    {{ else }}
+        {{ partial "components/post-footer.html" . }}
+    {{ end }}
+
+    {{ partial "scripts/main.html" . }}
+    {{ if not .IsHome }}{{ partial "scripts/post.html" . }}{{ end }}
+</body>
+</html>

@@ -1,0 +1,22 @@
+{{ $prev := .PrevInSection }}
+{{ $next := .NextInSection }}
+
+{{ if or $prev $next }}
+<nav class="post-navigation">
+    {{ if $prev }}
+        <a href="{{ $prev.Permalink }}" class="nav-post prev">
+            <div class="nav-post-label">← Previous</div>
+            <div class="nav-post-title">{{ $prev.Title }}</div>
+        </a>
+    {{ else }}
+        <div></div>
+    {{ end }}
+
+    {{ if $next }}
+        <a href="{{ $next.Permalink }}" class="nav-post next">
+            <div class="nav-post-label">Next →</div>
+            <div class="nav-post-title">{{ $next.Title }}</div>
+        </a>
+    {{ end }}
+</nav>
+{{ end }}

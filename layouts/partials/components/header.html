@@ -1,0 +1,16 @@
+<header>
+  <div class="container">
+      <nav>
+          <a href="{{ "/" | relURL }}" class="logo">
+              <div class="pixel-icon">✨</div>
+              {{ .Site.Title }}
+          </a>
+          <ul class="nav-links">
+              {{ range .Site.Menus.main }}
+                  <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+              {{ end }}
+              <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button></li>
+          </ul>
+      </nav>
+  </div>
+</header>

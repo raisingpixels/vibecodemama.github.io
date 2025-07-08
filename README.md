@@ -1,106 +1,179 @@
-# raisingpixels website
+# 🌅 raisingpixels.dev
 
-## ✨ About
+> *Exploring the intersection of parenting and technology*
 
-A minimal, aesthetic personal webpage. Built with a lofi/vaporwave aesthetic inspired by those golden hour coding sessions when the little one finally naps.
+A modern Hugo-powered blog with a custom theme featuring advanced search functionality and responsive design.
 
-## 🎨 Features
+## ✨ Features
 
-- **Lofi Aesthetic**: Sunset gradient backgrounds with glassmorphism effects
-- **Responsive Design**: Looks great on all devices
-- **Responsive Light and Dark Mode**: Respects system preference using CSS media queries
-- **Auto-Updating Portfolio**: GitHub Action automatically fetches and displays latest repositories
-- **Clean Typography**: JetBrains Mono + Crimson Text pairing
-- **Minimal Social Links**: Icon-based GitHub and X/Twitter links
+### 🎨 Design & Aesthetics
+- **Cozy Themes**: Sunset-inspired color palettes for light and dark, with glassmorphism effects
+- **Responsive Design**: Optimized for all devices and screen sizes
+- **Dark/Light Mode**: Automatic theme switching based on system preference
+- **Custom Typography**: Carefully selected font combinations (Source Serif 4, Space Grotesk, Caveat)
+- **Floating Animations**: Subtle pixel animations for visual interest
+
+### 📝 Content Management
+- **Hugo Static Site Generator**: Fast, secure, and SEO-friendly
+- **Markdown Support**: Write posts in Markdown with full Hugo features
+- **Custom Post Cards**: Reusable post card component for consistent styling
+- **Tag System**: Organize content with tags and categories
+- **Reading Progress**: Visual progress bar for blog posts
+- **Table of Contents**: Auto-generated TOC for long posts
+
+### 🔍 Advanced Search & Filtering
+- **Instant Search**: Real-time search as you type
+- **Tag Filtering**: Filter posts by tags with interactive chips
+- **Smart URL Handling**: Auto-select tags when visiting tag-specific URLs
+- **JSON Index**: Efficient search powered by Hugo's JSON output
+- **No Results Handling**: Graceful empty states
+
+### 💻 Code Features
+- **Syntax Highlighting**: Beautiful code blocks with language detection
+- **Copy to Clipboard**: One-click code copying
+- **Multiple Themes**: Light and dark syntax highlighting
+- **Line Numbers**: Optional line numbering for code blocks
+- **Language Labels**: Clear language identification
+
+### 🚀 Performance & SEO
+- **Static Generation**: Lightning-fast loading times
+- **Optimized CSS**: Organized, minified stylesheets
+- **Responsive Images**: Optimized image handling
+- **Clean URLs**: SEO-friendly URL structure
+- **Meta Tags**: Proper OpenGraph and Twitter Card support
 
 ## 🚀 Quick Start
 
-1. **Clone & Setup**
-   Click "Use this template" to grab a copy for yourself!
+### Prerequisites
+- [Hugo Extended](https://gohugo.io/installation/) (v0.100.0+)
+- Git
 
-2. **Add Your Profile Image**
+### Installation
+
+1. **Clone the repository**
    ```bash
-   # Add your profile image as profile.jpg in the root directory
-   cp your-photo.jpg profile.jpg
+   git clone https://github.com/raisingpixels/raisingpixels.github.io.git
+   cd raisingpixels.github.io
    ```
-   
-3. **Customize Content**
-   - Update social links in `index.html`
-   - Modify tagline and username styling
-   - Adjust color scheme in CSS variables
 
-4. **Deploy**
-   - Push to GitHub
-   - Enable GitHub Actions
-   - Deploy to GitHub Pages, Vercel, or your preferred host
+2. **Start the development server**
+   ```bash
+   hugo server -D
+   ```
 
-## ⚙️ GitHub Action
+3. **Visit your site**
+   Open [http://localhost:1313](http://localhost:1313) in your browser
 
-The site automatically updates your repository showcase daily using a GitHub Action:
+### Creating Content
 
-- Runs daily at midnight UTC
-- Fetches your latest public repositories
-- Filters out forks and archived repos
-- Sorts by stars and recent activity
-- Shows top 6 repositories
+1. **Create a new post**
+   ```bash
+   hugo new posts/my-new-post.md
+   ```
 
-**Required Setup:**
+2. **Edit the post**
+   ```markdown
+   ---
+   title: "My New Post"
+   date: 2024-01-01T12:00:00Z
+   tags: ["parenting", "technology"]
+   categories: ["blog"]
+   summary: "A brief description of your post"
+   ---
 
-- No additional secrets needed (uses `GITHUB_TOKEN`)
-- Action runs automatically on push and daily
-- Can be triggered manually from Actions tab
+   Your content here...
+   ```
 
-## 🎯 Customization
+3. **Preview and publish**
+   ```bash
+   hugo server -D  # Preview with drafts
+   hugo            # Build for production
+   ```
 
-### Color Scheme
+## 🎨 Customization
+
+### Theme Colors
+Edit CSS custom properties in `static/css/style.css`:
 
 ```css
 :root {
-  --bg-gradient: /* Your sunset gradient */
-  --text-primary: /* Main text color */
-  --link-color: /* Accent color */
-  --accent: /* Secondary accent */
+  /* Base theme colors */
+  --bg-gradient: linear-gradient(180deg, #ffd89b 0%, #ffc3a0 50%, #ffb7b7 100%);
+  --text-primary: #333;
+  --text-secondary: #4a5568;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --accent-primary: #667eea;
+  /* ... more variables */
 }
 ```
 
-### Repository Display
+### Site Configuration
+Update `hugo.yaml`:
 
-- Edit `loadRepositories()` function to change filtering logic
-- Modify `.slice(0, 6)` to show more/fewer repos
-- Adjust sorting criteria in the sort function
+```yaml
+baseURL: 'https://your-domain.com'
+languageCode: 'en-us'
+title: 'Your Site Title'
+params:
+  author: 'Your Name'
+  description: 'Your site description'
+```
 
-### Typography
+### Navigation & Footer
+- Edit `layouts/partials/components/header.html` for navigation
+- Edit `layouts/partials/components/footer.html` for footer content
 
-- Fonts: JetBrains Mono (code) + Crimson Text (body)
-- Easy to swap in CSS imports
+## 🔧 Development
 
-## 🛠️ Tech Stack
-
-- **Vanilla HTML/CSS/JavaScript** - No frameworks, fast loading
-- **Font Awesome** - Social media icons
-- **Google Fonts** - Typography
-- **GitHub GraphQL API** - Repository data
-- **CSS Grid/Flexbox** - Responsive layouts
-- **CSS Variables** - Easy theming
+### CSS Organization
+The stylesheet is organized into logical sections:
+- Variables and base styles
+- Layout components
+- Search and filtering
+- Post and card styles
+- Responsive design
+- Syntax highlighting
 
 ## 📱 Browser Support
 
-- Modern browsers (Chrome, Firefox, Safari, Edge)
-- Responsive design works on all screen sizes
-- Graceful fallbacks for older browsers
-- Progressive enhancement approach
+- **Modern browsers**: Chrome, Firefox, Safari, Edge (latest versions)
+- **Mobile responsive**: iOS Safari, Chrome Mobile
+- **Progressive enhancement**: Graceful fallbacks for older browsers
+- **Accessibility**: WCAG 2.1 AA compliant
+
+## 🚀 Deployment
+
+### GitHub Pages
+1. Push to your GitHub repository
+2. Enable GitHub Pages in repository settings
+3. Set source to GitHub Actions
+4. Hugo will build and deploy automatically
+
+### Other Platforms
+- **Netlify**: Connect your repo for automatic deployments
+- **Vercel**: Import project for instant deployment
+- **Custom server**: Upload the `public/` folder after running `hugo`
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-MIT License - feel free to use as inspiration for your own site!
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
------
+---
 
-*“raising pixels, one commit at a time”* ✨
+*"Raising pixels, one commit at a time"* ✨
 
-<!-- 
-Secret message for fellow parent coders:
-You're doing great. Your kids don't care if your code is perfect.
-They care that you're there and trying your best.
-Keep building!
+<!--
+For fellow parent developers:
+Remember that perfect code doesn't exist, but good enough code that ships does.
+Your kids won't remember if your CSS was pixel-perfect,
+but they'll remember the time you spent with them.
+Keep building, keep growing!
 -->

@@ -1,0 +1,99 @@
+<script>
+  // Theme toggle functionality
+  function getSystemPreference() {
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  function getInitialTheme() {
+      const savedTheme = localStorage.getItem('darkMode');
+      if (savedTheme !== null) {
+          return savedTheme === 'true';
+      }
+      return getSystemPreference();
+  }
+
+  let isDarkMode = getInitialTheme();
+
+  function initTheme() {
+      document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+      updateThemeToggle();
+  }
+
+  function toggleTheme() {
+      isDarkMode = !isDarkMode;
+      document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+      localStorage.setItem('darkMode', isDarkMode);
+      updateThemeToggle();
+  }
+
+  function updateThemeToggle() {
+      const themeToggle = document.querySelector('.theme-toggle');
+      if (themeToggle) {
+          // Show sun when dark mode is active (to switch to light)
+          // Show moon when light mode is active (to switch to dark)
+          themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+          themeToggle.setAttribute('aria-label', isDarkMode ? 'Switch to light mode' : 'Switch to dark mode');
+      }
+  }
+
+  // Listen for system theme changes
+  if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+          // Only update if user hasn't manually set a preference
+          if (localStorage.getItem('darkMode') === null) {
+              isDarkMode = e.matches;
+              initTheme();
+          }
+      });
+  }
+
+  // Create floating pixels animation
+  function createFloatingPixel() {
+      const pixel = document.createElement('div');
+      pixel.className = 'floating-pixel';
+      pixel.style.left = Math.random() * 100 + '%';
+      pixel.style.animationDuration = (Math.random() * 15 + 20) + 's';
+      pixel.style.animationDelay = Math.random() * 8 + 's';
+
+      const floatingPixels = document.getElementById('floatingPixels');
+      if (floatingPixels) {
+          floatingPixels.appendChild(pixel);
+
+          setTimeout(() => {
+              if (pixel.parentNode) {
+                  pixel.remove();
+              }
+          }, 30000);
+      }
+  }
+
+  // Smooth scrolling for navigation links
+  function initSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              const target = document.querySelector(this.getAttribute('href'));
+              if (target) {
+                  target.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start'
+                  });
+              }
+          });
+      });
+  }
+
+  // Initialize everything when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+      initTheme();
+      initSmoothScroll();
+
+      // Start floating pixels animation
+      setInterval(createFloatingPixel, 5000);
+
+      // Create initial pixels
+      for (let i = 0; i < 3; i++) {
+          setTimeout(createFloatingPixel, i * 2000);
+      }
+  });
+</script>

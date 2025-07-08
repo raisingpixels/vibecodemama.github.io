@@ -1,0 +1,66 @@
+baseURL: 'https://raisingpixels.dev'
+languageCode: 'en-us'
+title: 'raisingpixels.dev'
+theme: ''
+
+params:
+  author:
+    name: 'RaisingPixels'
+    image: 'images/profile.png'
+  description: 'Building beautiful software and nurturing young minds. Hacks and habits that make every day better.'
+  tagline: 'Where parenting and programming meet AI'
+
+menu:
+  main:
+    - name: 'Projects'
+      url: '#projects'
+      weight: 10
+    - name: 'Blog'
+      url: '/posts/'
+      weight: 20
+    - name: 'About'
+      url: '#about'
+      weight: 30
+
+pagination:
+  pagerSize: 5
+  path: 'page'
+
+taxonomies:
+  tag: tags
+  category: categories
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 2
+  highlight:
+    codeFences: true
+    lineNos: true
+    lineNumbersInTable: false
+    guessSyntax: false
+    noClasses: false
+    style: 'github-dark-dimmed'
+    tabWidth: 2
+
+outputs:
+  home: ["HTML", "RSS", "JSON"]
+  page: ["HTML"]
+
+outputFormats:
+  RSS:
+    mediaType: application/rss+xml
+    isPlainText: false
+  JSON:
+    mediaType: application/json
+    basename: 'index'
+    isPlainText: true
+
+build:
+  writeStats: true
+
+permalinks:
+  posts: "/:title/"

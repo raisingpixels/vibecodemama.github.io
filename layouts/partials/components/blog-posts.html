@@ -1,0 +1,17 @@
+<div class="blog-posts">
+  {{ $posts := where .Site.RegularPages "Type" "posts" }} {{ $recentPosts :=
+  first 3 $posts }} {{ if $recentPosts }} {{ range $recentPosts }}
+{{ partial "components/post-card.html" . }}
+  {{ end }} {{ if gt (len $posts) 3 }}
+  <div class="all-posts-card">
+    <h3><a href="/posts/">View All Posts →</a></h3>
+  </div>
+  {{ end }} {{ else }}
+  <div class="blog-post coming-soon-card">
+    <h3>First Post Coming Soon</h3>
+    <p>
+      I'm just getting started, but I have so many stories to share! Stay tuned for more soon!
+    </p>
+  </div>
+  {{ end }}
+</div>

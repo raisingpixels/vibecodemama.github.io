@@ -2,7 +2,7 @@ name: Update Repository List
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Run daily at midnight
+    - cron: '0 12 * * *'  # Run daily at 12:00 UTC
   push:
     branches: [ main, master ]
   workflow_dispatch:  # Allow manual trigger
@@ -13,11 +13,11 @@ permissions:
 jobs:
   update-repos:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      
+
       - name: Fetch repository data
         id: repo-data
         uses: actions/github-script@v6
@@ -47,11 +47,11 @@ jobs:
                 }
               }
             `;
-            
+
             const variables = {
               username: username
             };
-            
+
             const result = await github.graphql(query, variables);
             const repos = result.user.repositories.nodes.map(repo => ({
               name: repo.name,
@@ -65,15 +65,15 @@ jobs:
               language: repo.primaryLanguage ? repo.primaryLanguage.name : null,
               fork: repo.isFork
             }));
-            
+
             const fs = require('fs');
-            fs.writeFileSync('repos.json', JSON.stringify(repos, null, 2));
+            fs.writeFileSync('assets/repos.json', JSON.stringify(repos, null, 2));
             console.log(`Successfully fetched ${repos.length} repositories`);
-      
+
       - name: Commit and push changes
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
-          git add repos.json
+          git add assets/repos.json
           git diff --quiet && git diff --staged --quiet || git commit -m "Update repository list"
           git push

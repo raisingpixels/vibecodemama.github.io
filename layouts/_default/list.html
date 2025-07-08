@@ -1,0 +1,301 @@
+{{ define "main" }}
+<div class="container">
+    <div class="page-header">
+        <h1><span class="raising-text">raising</span><span class="pixels-text">pixels</span> <span class="blog-text">blog</span> ✨</h1>
+        <p class="page-subtitle">{{ .Site.Params.tagline }}</p>
+    </div>
+
+    <div class="search-controls">
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search posts..." autocomplete="off">
+            <div class="search-icon">🔍</div>
+        </div>
+
+        <div class="tag-filters">
+            <div class="tag-chips" id="tag-chips">
+                <!-- Tags will be populated by JavaScript -->
+            </div>
+        </div>
+
+    </div>
+
+    {{ if .Pages }}
+        <div class="posts-list" id="posts-list">
+            {{ range .Pages }}
+                {{ partial "components/post-card.html" . }}
+            {{ end }}
+        </div>
+    {{ else }}
+        <div class="empty-state">
+            <h2>No posts yet</h2>
+            <p>Check back soon for new content!</p>
+        </div>
+    {{ end }}
+
+    <div class="no-results" id="no-results" style="display: none;">
+        <h2>No posts found</h2>
+        <p>Try adjusting your search terms or filters.</p>
+    </div>
+
+    <div class="load-more-container" id="load-more-container" style="display: none;">
+        <button class="load-more-btn" id="load-more-btn">Load More Posts</button>
+    </div>
+</div>
+
+<script>
+// Search functionality
+let allPosts = [];
+let filteredPosts = [];
+let activeFilters = new Set();
+let displayedPostsCount = 0;
+const postsPerPage = 5; // Match Hugo's pagerSize
+
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetch posts data
+    fetch('/index.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(posts => {
+            allPosts = posts;
+            filteredPosts = [...allPosts];
+            initializeTagFilters();
+            updateDisplay();
+        })
+        .catch(error => {
+            // Fallback: use the posts already rendered on the page
+            initializeFromDOM();
+        });
+});
+
+// Fallback function to extract posts from DOM if JSON fails
+function initializeFromDOM() {
+    const postCards = document.querySelectorAll('.post-card');
+    allPosts = Array.from(postCards).map(card => {
+        const titleElement = card.querySelector('h2 a');
+        const metaElement = card.querySelector('.post-meta time');
+        const summaryElement = card.querySelector('.post-summary');
+        const tagElements = card.querySelectorAll('.post-tags .tag');
+
+        return {
+            title: titleElement ? titleElement.textContent : '',
+            url: titleElement ? titleElement.href : '',
+            summary: summaryElement ? summaryElement.textContent : '',
+            excerpt: summaryElement ? summaryElement.textContent : '',
+            tags: Array.from(tagElements).map(tag => tag.textContent.replace('#', '')),
+            date: metaElement ? metaElement.getAttribute('datetime') : '',
+            dateFormatted: metaElement ? metaElement.textContent : ''
+        };
+    });
+
+    filteredPosts = [...allPosts];
+    initializeTagFilters();
+}
+
+function initializeTagFilters() {
+    // Count tag frequency
+    const tagCounts = {};
+    allPosts.forEach(post => {
+        if (post.tags) {
+            post.tags.forEach(tag => {
+                tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+            });
+        }
+    });
+
+    // Sort tags by frequency (descending) and take top 10
+    const sortedTags = Object.entries(tagCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 10)
+        .map(([tag, count]) => tag);
+
+    const tagChipsContainer = document.getElementById('tag-chips');
+
+    // Check if we're on a tag page and extract the tag name
+    const currentPath = window.location.pathname;
+    const tagMatch = currentPath.match(/\/tags\/([^\/]+)\/?$/);
+    const currentTag = tagMatch ? decodeURIComponent(tagMatch[1]) : null;
+
+    sortedTags.forEach(tag => {
+        const chip = document.createElement('button');
+        chip.className = 'tag-chip';
+        chip.textContent = tag;
+        chip.onclick = () => toggleTagFilter(tag, chip);
+
+        // Auto-select the tag if we're on its page
+        // Compare both the original tag and its URL-safe version
+        const tagUrlSafe = tag.toLowerCase().replace(/\s+/g, '-');
+        if (currentTag && (tag.toLowerCase() === currentTag.toLowerCase() || tagUrlSafe === currentTag.toLowerCase())) {
+            chip.classList.add('active');
+            activeFilters.add(tag);
+        }
+
+        tagChipsContainer.appendChild(chip);
+    });
+
+    // Create and append the clear button after all tags
+    const clearButton = document.createElement('button');
+    clearButton.className = 'clear-filters-btn';
+    clearButton.id = 'clear-filters-btn';
+    clearButton.textContent = 'Clear All';
+    clearButton.style.display = 'none';
+    clearButton.addEventListener('click', clearAllFilters);
+    tagChipsContainer.appendChild(clearButton);
+
+    // If we have a pre-selected tag, filter the posts
+    if (activeFilters.size > 0) {
+        updateClearButtonVisibility();
+        filterPosts();
+    }
+}
+
+function toggleTagFilter(tag, chipElement) {
+    if (activeFilters.has(tag)) {
+        activeFilters.delete(tag);
+        chipElement.classList.remove('active');
+    } else {
+        activeFilters.add(tag);
+        chipElement.classList.add('active');
+    }
+    updateClearButtonVisibility();
+    filterPosts();
+}
+
+function clearAllFilters() {
+    activeFilters.clear();
+
+    // Remove active class from all tag chips
+    const tagChips = document.querySelectorAll('.tag-chip');
+    tagChips.forEach(chip => chip.classList.remove('active'));
+
+    updateClearButtonVisibility();
+    filterPosts();
+}
+
+function updateClearButtonVisibility() {
+    const clearButton = document.getElementById('clear-filters-btn');
+    if (activeFilters.size > 0) {
+        clearButton.style.display = 'inline-block';
+    } else {
+        clearButton.style.display = 'none';
+    }
+}
+
+function filterPosts() {
+    const searchTerm = document.getElementById('search-input').value.toLowerCase();
+
+    filteredPosts = allPosts.filter(post => {
+        // Search filter
+        const matchesSearch = !searchTerm ||
+            post.title.toLowerCase().includes(searchTerm) ||
+            post.summary.toLowerCase().includes(searchTerm) ||
+            (post.tags && post.tags.some(tag => tag.toLowerCase().includes(searchTerm)));
+
+        // Tag filter
+        const matchesTags = activeFilters.size === 0 ||
+            (post.tags && Array.from(activeFilters).every(filter => post.tags.includes(filter)));
+
+        return matchesSearch && matchesTags;
+    });
+
+    updateDisplay();
+}
+
+function updateDisplay() {
+    const postsContainer = document.getElementById('posts-list');
+    const noResults = document.getElementById('no-results');
+    const loadMoreContainer = document.getElementById('load-more-container');
+
+    if (filteredPosts.length === 0) {
+        postsContainer.style.display = 'none';
+        noResults.style.display = 'block';
+        loadMoreContainer.style.display = 'none';
+    } else {
+        postsContainer.style.display = 'flex';
+        noResults.style.display = 'none';
+
+        // Reset displayed posts count when filters change
+        displayedPostsCount = 0;
+
+        // Clear and show initial posts
+        postsContainer.innerHTML = '';
+        loadMorePosts();
+    }
+}
+
+function loadMorePosts() {
+    const postsContainer = document.getElementById('posts-list');
+    const loadMoreContainer = document.getElementById('load-more-container');
+
+    // Calculate how many posts to show
+    const endIndex = Math.min(displayedPostsCount + postsPerPage, filteredPosts.length);
+
+    // Add new posts to the container
+    for (let i = displayedPostsCount; i < endIndex; i++) {
+        const postElement = createPostElement(filteredPosts[i]);
+        postsContainer.appendChild(postElement);
+    }
+
+    // Update displayed count
+    displayedPostsCount = endIndex;
+
+    // Show/hide load more button
+    if (displayedPostsCount < filteredPosts.length) {
+        loadMoreContainer.style.display = 'block';
+    } else {
+        loadMoreContainer.style.display = 'none';
+    }
+}
+
+function createPostElement(post) {
+    const article = document.createElement('article');
+    article.className = 'post-card';
+
+    const tagsHtml = post.tags ?
+        `<div class="post-tags">
+            ${post.tags.map(tag => `<a href="/tags/${tag.toLowerCase().replace(/\s+/g, '-')}" class="tag">${tag}</a>`).join('')}
+        </div>` : '';
+
+    article.innerHTML = `
+        <h2><a href="${post.url}">${post.title}</a></h2>
+        <div class="post-meta">
+            <time datetime="${post.date}">${post.dateFormatted}</time>
+            ${post.readingTime ? `• <span class="reading-time">${post.readingTime} min read</span>` : ''}
+        </div>
+        <div class="post-summary">${post.summary}</div>
+        ${tagsHtml}
+    `;
+
+
+    return article;
+}
+
+
+// Search input event listener - moved inside DOMContentLoaded
+function initializeSearchInput() {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', filterPosts);
+    }
+}
+
+// Initialize search input after DOM loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeSearchInput();
+    initializeLoadMore();
+});
+
+// Initialize load more button
+function initializeLoadMore() {
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', loadMorePosts);
+    }
+}
+</script>
+
+{{ end }}
