@@ -2,7 +2,7 @@ name: Update Repository List
 
 on:
   schedule:
-    - cron: '0 12 * * *'  # Run daily at 12:00 UTC
+    - cron: '0 0 * * *'
   push:
     branches: [ main, master ]
   workflow_dispatch:  # Allow manual trigger
