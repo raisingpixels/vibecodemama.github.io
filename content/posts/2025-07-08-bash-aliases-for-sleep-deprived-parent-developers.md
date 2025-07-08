@@ -1,23 +1,25 @@
 ---
-title: "Bash Aliases That Save Parent Developers Hours Every Week"
+title: "Bash Aliases for Sleep-Deprived Parent Developers"
 date: "2025-07-08T05:42:27-05:00"
 draft: false
-description: "When you have 47 seconds to fix production before your toddler wakes up, every keystroke counts. Here are the aliases that actually matter."
+description: "CLI productivity with terminal shortcuts that work even when your brain is mostly Goldfish Crackers."
 categories: ["Parenting with Systems", "Developer Productivity"]
 tags: ["bash", "aliases", "productivity", "cli", "automation", "git"]
 ---
 
-It's 2:30 PM on a Tuesday. You've just fixed the production app bug, your toddler is stirring from their nap, and you have exactly 47 seconds to push the patch before they need you. This would not be the ideal time to look up the exact git command syntax.
+It's 2:30 PM on a Tuesday. You've been awake since 4:32 AM (thanks, kiddo), you've just figured out the production bug, and your toddler is stirring from their nap. Your brain is running on coffee fumes and you have exactly 47 seconds to push a fix.
+
+This would not be the ideal time to look up the exact git command syntax.
 
 It's a good thing you've set up an alias for this precise situation:
 
-`quickfix` runs `git pull --rebase && git add . && git commit -m 'Quick fix' && git push` in one command. Three seconds, and your work is safe in the cloud.
+`quickfix` runs `git pull --rebase && git add . && git commit -m 'Quick fix' && git push` in one command. Three seconds, and your work is shipped.
 
-When you're trying to make the most out of both parent and programmer life, aliases aren't just convenience—they can make all the difference between *distracted* and *done*.
+When your cognitive load is already maxed out on keeping tiny humans alive, every saved keystroke matters.
 
 ## Why Aliases Matter More for Parent Developers
 
-Typically, developers optimize for readability and best practices. Parent developers benefit from optimizing for **speed and resumability**. When your coding windows are measured in minutes, every saved keystroke compounds.
+Typically, developers optimize for readability and best practices. Parent developers benefit from optimizing for **speed and resumability**. When your coding windows are measured in minutes and you have precious few more of those than functioning brain cells, every saved keystroke compounds.
 
 The math is simple:
 - Average parent coding session: 15 minutes
