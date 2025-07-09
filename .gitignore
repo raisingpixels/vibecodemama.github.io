@@ -86,3 +86,6 @@ exampleSite/resources/
 # Backup files
 *.bak
 *.backup
+
+# Drafts folder
+drafts/
