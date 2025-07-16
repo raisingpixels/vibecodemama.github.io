@@ -1,5 +1,17 @@
 [
   {
+    "name": "raisingpixels.github.io",
+    "description": "The raisingpixels.dev blog, where parenting and programming meet AI.",
+    "url": "https://github.com/raisingpixels/raisingpixels.github.io",
+    "updatedAt": "2025-07-15T01:45:30Z",
+    "stargazerCount": 1,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": true,
+    "language": "CSS",
+    "fork": false
+  },
+  {
     "name": "vintage-web-hugo-theme",
     "description": "Hugo theme for 1999.",
     "url": "https://github.com/raisingpixels/vintage-web-hugo-theme",
@@ -9,18 +21,6 @@
     "isArchived": false,
     "isTemplate": false,
     "language": "HTML",
-    "fork": false
-  },
-  {
-    "name": "raisingpixels.github.io",
-    "description": "The raisingpixels.dev blog, where parenting and programming meet AI.",
-    "url": "https://github.com/raisingpixels/raisingpixels.github.io",
-    "updatedAt": "2025-07-14T01:45:20Z",
-    "stargazerCount": 1,
-    "forkCount": 0,
-    "isArchived": false,
-    "isTemplate": true,
-    "language": "CSS",
     "fork": false
   },
   {
