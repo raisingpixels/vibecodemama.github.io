@@ -3,7 +3,7 @@
     "name": "raisingpixels.github.io",
     "description": "The raisingpixels.dev blog, where parenting and programming meet AI.",
     "url": "https://github.com/raisingpixels/raisingpixels.github.io",
-    "updatedAt": "2025-07-16T01:42:08Z",
+    "updatedAt": "2025-07-17T19:06:31Z",
     "stargazerCount": 1,
     "forkCount": 0,
     "isArchived": false,
@@ -12,15 +12,39 @@
     "fork": false
   },
   {
+    "name": "parent-dev-devcontainer",
+    "description": "The portable, consistent, no-set-up-time development environment for parent devs who code in 15-minute windows.",
+    "url": "https://github.com/raisingpixels/parent-dev-devcontainer",
+    "updatedAt": "2025-07-17T18:58:13Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": null,
+    "fork": false
+  },
+  {
     "name": "vintage-web-hugo-theme",
     "description": "Hugo theme for 1999.",
     "url": "https://github.com/raisingpixels/vintage-web-hugo-theme",
-    "updatedAt": "2025-07-14T03:01:12Z",
-    "stargazerCount": 4,
+    "updatedAt": "2025-07-17T10:54:18Z",
+    "stargazerCount": 5,
     "forkCount": 0,
     "isArchived": false,
     "isTemplate": false,
     "language": "HTML",
+    "fork": false
+  },
+  {
+    "name": "hugo-devcontainer",
+    "description": "VSCode devcontainer setup optimized for Hugo development.",
+    "url": "https://github.com/raisingpixels/hugo-devcontainer",
+    "updatedAt": "2025-07-17T02:19:49Z",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "isArchived": false,
+    "isTemplate": false,
+    "language": "Shell",
     "fork": false
   },
   {
