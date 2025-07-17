@@ -1,10 +1,10 @@
 ---
 title: "Stop Losing Coding Time to Environment Set Up: The Parent Developer's Devcontainer"
 date: "2025-07-17T01:31:06+00:00"
-draft: true
-subtitle: ""
-categories: []
-tags: []
+draft: false
+description: "Stop wasting precious coding time on environment setup. This battle-tested devcontainer configuration gets parent developers from git clone to productive coding in 30 seconds, with all the AI tools and automation you need for fragmented-time development."
+categories: ["productivity", "development-environment"]
+tags: ["devcontainer", "vscode", "docker", "parent-developer", "automation", "ai-tools", "productivity", "development-setup"]
 ---
 
 It’s 9:15 PM. You’ve got 45 minutes before you collapse from exhaustion. You fire up your laptop, clone that project you were working on last week, and… wait. Which Node version was this? Did you install the right linter? Where’s that extension you rely on for auto-formatting?
@@ -227,6 +227,8 @@ Here’s my battle-tested `.devcontainer/devcontainer.json` that I use across al
    ```
 3. **Copy the configuration above** into `devcontainer.json`
 4. **Open in container**: `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows/Linux) → “Dev Containers: Reopen in Container”
+
+You can also clone the ready-to-use [Parent Developer Devcontainer Template](https://github.com/raisingpixels/parent-dev-devcontainer) repository to get started quickly.
 
 ## Adding Bash Aliases (Optional Enhancement)
 

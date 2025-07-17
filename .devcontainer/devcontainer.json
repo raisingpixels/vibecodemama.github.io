@@ -1,9 +1,9 @@
 {
-  "name": "Parent Developer Environment",
+  "name": "Hugo Parent Developer Environment",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
   "features": {
-    "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/hugo:1": {}
+    "ghcr.io/devcontainers/features/hugo:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   "customizations": {
     "vscode": {
@@ -13,11 +13,16 @@
         "github.copilot",
         "github.copilot-chat",
 
-        // Auto-save and sync - Never lose work again
+        // Hugo-specific extensions
+        "budparr.language-hugo-vscode",
+        "davidanson.vscode-markdownlint",
+        "yzhang.markdown-all-in-one",
         "ms-vscode.vscode-json",
-        "bradlc.vscode-tailwindcss",
+
+        // Writing and content creation
         "esbenp.prettier-vscode",
-        "ms-vscode.vscode-typescript-next",
+        "streetsidesoftware.code-spell-checker",
+        "bierner.markdown-preview-github-styles",
 
         // Git workflow optimization
         "eamodio.gitlens",
@@ -25,20 +30,8 @@
         "ms-vscode.vscode-merge-conflict",
 
         // Quick navigation and search
-        "ms-vscode.vscode-json",
         "christian-kohler.path-intellisense",
-        "formulahendry.auto-rename-tag",
-
-        // Error prevention and code quality
-        "ms-vscode.vscode-eslint",
-        "ms-vscode.vscode-typescript-next",
-        "bradlc.vscode-tailwindcss",
-
-        // Productivity boosters
-        "formulahendry.code-runner",
-        "ms-vscode.vscode-json",
-        "redhat.vscode-yaml",
-        "ms-vscode.vscode-json",
+        "ms-vscode.vscode-yaml",
 
         // Theme and comfort
         "pkief.material-icon-theme"
@@ -54,9 +47,14 @@
         // Format on save - one less thing to think about
         "editor.formatOnSave": true,
         "editor.formatOnPaste": true,
-        "editor.codeActionsOnSave": {
-          "source.fixAll.eslint": "always",
-          "source.organizeImports": "always"
+        "[markdown]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.wordWrap": "on",
+          "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+          }
         },
 
         // Visual improvements - because you deserve a nice workspace
@@ -70,18 +68,12 @@
         "editor.bracketPairColorization.enabled": true,
         "editor.guides.bracketPairs": true,
 
-        // Intelligent suggestions - help when brain is tired
-        "editor.quickSuggestions": {
-          "other": true,
-          "comments": true,
-          "strings": true
-        },
-        "editor.suggestOnTriggerCharacters": true,
-        "editor.acceptSuggestionOnCommitCharacter": true,
-        "editor.acceptSuggestionOnEnter": "on",
-        "editor.tabCompletion": "on",
-        "editor.snippetSuggestions": "top",
-        "editor.wordBasedSuggestions": "matchingDocuments",
+        // Markdown-specific settings
+        "markdown.preview.breaks": true,
+        "markdown.preview.linkify": true,
+        "markdown.preview.typographer": true,
+        "markdown.extension.toc.levels": "1..3",
+        "markdown.extension.preview.autoShowPreviewToSide": false,
 
         // Better diff viewing for when you return to old work
         "diffEditor.ignoreTrimWhitespace": false,
@@ -98,11 +90,9 @@
         "explorer.sortOrder": "type",
         "explorer.fileNesting.enabled": true,
         "explorer.fileNesting.patterns": {
-          "*.ts": "${capture}.js, ${capture}.d.ts.map, ${capture}.d.ts, ${capture}.js.map",
-          "*.tsx": "${capture}.ts, ${capture}.js",
-          "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml",
-          "*.vue": "${capture}.vue.d.ts",
-          "README.md": "*.md"
+          "*.md": "*.draft.md",
+          "config.*": "config.*.yml, config.*.yaml, config.*.toml, config.*.json",
+          "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
         },
 
         // File handling - keep it tidy
@@ -113,26 +103,23 @@
           "**/.git": true,
           "**/.DS_Store": true,
           "**/node_modules": true,
-          "**/.next": true,
-          "**/dist": true,
-          "**/build": true,
+          "**/public": true,
+          "**/resources": true,
+          "**/.hugo_build.lock": true,
           "**/.vscode": false
         },
         "files.watcherExclude": {
           "**/.git/objects/**": true,
           "**/.git/subtree-cache/**": true,
           "**/node_modules/*/**": true,
-          "**/.next/**": true,
-          "**/dist/**": true
+          "**/public/**": true,
+          "**/resources/**": true
         },
-        "typescript.disableAutomaticTypeAcquisition": false,
-        "typescript.updateImportsOnFileMove.enabled": "always",
         "search.exclude": {
           "**/node_modules": true,
-          "**/bower_components": true,
-          "**/*.code-search": true,
-          "**/dist": true,
-          "**/build": true
+          "**/public": true,
+          "**/resources": true,
+          "**/.hugo_build.lock": true
         },
 
         // Terminal optimization
@@ -151,29 +138,46 @@
           "markdown": true
         },
 
-        // Theme settings for late-night coding (with auto dark mode)
+        // Theme settings for late-night writing (with auto dark mode)
         "window.autoDetectColorScheme": true,
         "workbench.colorTheme": "Monokai",
         "workbench.iconTheme": "material-icon-theme",
         "workbench.preferredDarkColorTheme": "Monokai",
         "workbench.preferredLightColorTheme": "Quiet Light",
 
-        // Prettier configuration
+        // Prettier configuration for markdown
         "prettier.singleQuote": true,
         "prettier.semi": true,
         "prettier.tabWidth": 2,
+        "prettier.proseWrap": "always",
 
-        // ESLint settings
-        "eslint.run": "onSave"
+        // Spell checking
+        "cSpell.enabled": true,
+        "cSpell.language": "en",
+        "cSpell.words": [
+          "devcontainer",
+          "hugo",
+          "localhost",
+          "markdown",
+          "raisingpixels",
+          "toml",
+          "yaml"
+        ]
       }
     }
   },
   "containerEnv": {
     "GIT_EDITOR": "code --wait"
   },
-  "postCreateCommand": "npm install -g @anthropic-ai/claude-code && git config --global user.email 'your@email.com' && git config --global user.name 'Your Name' && [ -f package.json ] && npm install || true",
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code && git config --global user.email 'hello@raisingpixels.dev' && git config --global user.name 'Mama' && [ -f package.json ] && npm install || true && hugo version",
   "remoteUser": "node",
-  "forwardPorts": [3000, 8000, 1313],
+  "forwardPorts": [1313],
+  "portsAttributes": {
+    "1313": {
+      "label": "Hugo Dev Server",
+      "onAutoForward": "notify"
+    }
+  },
   "mounts": [
     "source=${localWorkspaceFolder}/.devcontainer/bashrc,target=/home/node/.bashrc,type=bind",
     "source=parentdev-bashhistory,target=/home/node/.bash_history,type=volume"
