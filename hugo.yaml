@@ -57,7 +57,7 @@ outputFormats:
     isPlainText: false
   JSON:
     mediaType: application/json
-    basename: 'index'
+    baseName: 'index'
     isPlainText: true
 
 build:

@@ -1,0 +1,181 @@
+{
+  "name": "Parent Developer Environment",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/hugo:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // AI Assistants - Your fragmented-time superpowers
+        "anthropic.claude-code",
+        "github.copilot",
+        "github.copilot-chat",
+
+        // Auto-save and sync - Never lose work again
+        "ms-vscode.vscode-json",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next",
+
+        // Git workflow optimization
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
+        "ms-vscode.vscode-merge-conflict",
+
+        // Quick navigation and search
+        "ms-vscode.vscode-json",
+        "christian-kohler.path-intellisense",
+        "formulahendry.auto-rename-tag",
+
+        // Error prevention and code quality
+        "ms-vscode.vscode-eslint",
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss",
+
+        // Productivity boosters
+        "formulahendry.code-runner",
+        "ms-vscode.vscode-json",
+        "redhat.vscode-yaml",
+        "ms-vscode.vscode-json",
+
+        // Theme and comfort
+        "pkief.material-icon-theme"
+      ],
+      "settings": {
+        // Auto-save everything - the parent developer's safety net
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 1000,
+        "git.autofetch": true,
+        "git.enableSmartCommit": true,
+        "git.confirmSync": false,
+
+        // Format on save - one less thing to think about
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "always",
+          "source.organizeImports": "always"
+        },
+
+        // Visual improvements - because you deserve a nice workspace
+        "editor.fontFamily": "'JetBrainsMono Nerd Font', 'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+        "editor.fontSize": 14,
+        "editor.fontLigatures": true,
+        "editor.lineHeight": 1.5,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": true,
+        "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairs": true,
+
+        // Intelligent suggestions - help when brain is tired
+        "editor.quickSuggestions": {
+          "other": true,
+          "comments": true,
+          "strings": true
+        },
+        "editor.suggestOnTriggerCharacters": true,
+        "editor.acceptSuggestionOnCommitCharacter": true,
+        "editor.acceptSuggestionOnEnter": "on",
+        "editor.tabCompletion": "on",
+        "editor.snippetSuggestions": "top",
+        "editor.wordBasedSuggestions": "matchingDocuments",
+
+        // Better diff viewing for when you return to old work
+        "diffEditor.ignoreTrimWhitespace": false,
+        "diffEditor.renderSideBySide": true,
+
+        // Optimize for quick context switching
+        "workbench.editor.enablePreview": false,
+        "workbench.editor.showTabs": "multiple",
+        "workbench.editor.wrapTabs": true,
+
+        // File management for chaos
+        "explorer.confirmDelete": false,
+        "explorer.confirmDragAndDrop": false,
+        "explorer.sortOrder": "type",
+        "explorer.fileNesting.enabled": true,
+        "explorer.fileNesting.patterns": {
+          "*.ts": "${capture}.js, ${capture}.d.ts.map, ${capture}.d.ts, ${capture}.js.map",
+          "*.tsx": "${capture}.ts, ${capture}.js",
+          "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml",
+          "*.vue": "${capture}.vue.d.ts",
+          "README.md": "*.md"
+        },
+
+        // File handling - keep it tidy
+        "files.trimTrailingWhitespace": true,
+        "files.trimFinalNewlines": true,
+        "files.insertFinalNewline": true,
+        "files.exclude": {
+          "**/.git": true,
+          "**/.DS_Store": true,
+          "**/node_modules": true,
+          "**/.next": true,
+          "**/dist": true,
+          "**/build": true,
+          "**/.vscode": false
+        },
+        "files.watcherExclude": {
+          "**/.git/objects/**": true,
+          "**/.git/subtree-cache/**": true,
+          "**/node_modules/*/**": true,
+          "**/.next/**": true,
+          "**/dist/**": true
+        },
+        "typescript.disableAutomaticTypeAcquisition": false,
+        "typescript.updateImportsOnFileMove.enabled": "always",
+        "search.exclude": {
+          "**/node_modules": true,
+          "**/bower_components": true,
+          "**/*.code-search": true,
+          "**/dist": true,
+          "**/build": true
+        },
+
+        // Terminal optimization
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.copyOnSelection": true,
+        "terminal.integrated.fontSize": 13,
+        "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', 'JetBrains Mono', Menlo",
+        "terminal.integrated.cursorBlinking": true,
+        "terminal.integrated.cursorStyle": "line",
+        "terminal.integrated.scrollback": 10000,
+
+        // GitHub integration
+        "github.copilot.enable": {
+          "*": true,
+          "plaintext": false,
+          "markdown": true
+        },
+
+        // Theme settings for late-night coding (with auto dark mode)
+        "window.autoDetectColorScheme": true,
+        "workbench.colorTheme": "Monokai",
+        "workbench.iconTheme": "material-icon-theme",
+        "workbench.preferredDarkColorTheme": "Monokai",
+        "workbench.preferredLightColorTheme": "Quiet Light",
+
+        // Prettier configuration
+        "prettier.singleQuote": true,
+        "prettier.semi": true,
+        "prettier.tabWidth": 2,
+
+        // ESLint settings
+        "eslint.run": "onSave"
+      }
+    }
+  },
+  "containerEnv": {
+    "GIT_EDITOR": "code --wait"
+  },
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code && git config --global user.email 'your@email.com' && git config --global user.name 'Your Name' && [ -f package.json ] && npm install || true",
+  "remoteUser": "node",
+  "forwardPorts": [3000, 8000, 1313],
+  "mounts": [
+    "source=${localWorkspaceFolder}/.devcontainer/bashrc,target=/home/node/.bashrc,type=bind",
+    "source=parentdev-bashhistory,target=/home/node/.bash_history,type=volume"
+  ]
+}
